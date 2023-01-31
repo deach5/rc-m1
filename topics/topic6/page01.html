@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/thismod.css">
+
+    <script src="../../script/lib/jquery.min.js"></script>
+
+    <script src="../../script/lib/bootstrap.js"></script>
+    <script src="../../script/lib/popper.min.js"></script>
+    <script src="../../script/lib/greensock/TweenMax.min.js"></script>
+    <script src="../../script/lib/scrollmagic/scrollmagic.min.js"></script>
+    <script src="../../script/lib/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+    <script src="../../script/lib/mediaelements/mediaelement.min.js"></script>
+    <script src="../../script/setupScreen.js"></script>
+    <script src="../../script/audiovideo.js"></script>
+    <script src="../../script/activities.js"></script>
+    <script src="../../script/script.js"></script>
+    <script type="module">
+        import jump from "../../script/lib/jump.js";
+            window.jump = jump
+        </script>
+    <script>
+        function setupPage() {}
+    </script>
+
+    <style type="text/css">
+        #screen1 {
+            background-image: url("../../assets/images/screenbg/t1s1_bg.jpg");
+        }
+
+        #screen2 .padtop {
+            background-image: url("../../assets/images/screenbg/t7s2_bg.png");
+            min-height: 25rem;
+            background-position: bottom;
+        }
+
+        #screen2 .padbot {
+            background-image: url("../../assets/images/screenbg/t7s2_bg_bot.png");
+            min-height: 20rem;
+            background-position: bottom;
+            background-repeat: no-repeat;
+
+        }
+
+        #s2_reveal {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 767.98px) {
+            #screen2 .padtop {
+                background-image: none;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="audio-container">
+        <audio id="custom-player" controls="controls" src="../../assets/audio/00_test.mp3" preload="none"></audio>
+    </div>
+    <main id="main">
+        <div id="page">
+            <header>
+                <div class="container fixed">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 cont-logo">
+                            <div class="logo"></div>
+
+                        </div>
+                        <div class="col-md-6 cont-title">
+
+                            <h3>
+                                <span class="var-course-title"></h3>
+
+                        </div>
+                        <div class="col-md-3 cont-tools-parent">
+                            <div class="row no-gutters justify-content-end">
+                                <div class="col-sm-12 cont-tools">
+                                    <a href="javascript:void(0)" class="close-caption-btn"></a>
+                                    <a href="javascript:void(0)" class="help-btn"></a>
+                                    <a href="javascript:void(0)" class="exit-btn"></a>
+                                    <a class="hamburger hamburger--slider-r is-active" type="">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <nav id="menu"></nav>
+
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <article>
+                <section id="screen1" class="screen style-header ignoreLock bg-h100" data-sbid="">
+                    <div class="container">
+                        <div class="topic-label">Manual Handling</div>
+
+                        <div class="mobile-title">
+                            <h3 class="var-course-title"></h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen2" class="screen ignoreLock nopad" data-sbid="sb_25">
+
+                    <div class="container-large style-white padtop">
+                        <div class="container">
+                            <div class="row bs-center">
+                                <div class="col-md-10 text-center">
+                                    <h2 class="screen-heading">What is manual handling?</h2>
+                                    <p>Many people would think that manual handling only refers to lifting and carrying
+                                        something. In fact, the term includes lifting, lowering, pushing, pulling,
+                                        moving, holding or restraining an object. It also covers activities that
+                                        require the use of force or effort such as pulling a lever or operating power
+                                        tools. Following are some important things to remember.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-large style-yellow padbot">
+                        <div class="container">
+                            <div class="row bs-center">
+                                <div class="col-md-10">
+                                    <div class="watch-listen-cont static">
+                                        <a href="#" class="wle-btn tracked" data-mp3="s22-p1-new">Watch – Listen –
+                                            Engage!</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row final bs-center">
+                                <div class="col-md-10">
+                                    <div class="style-note text-center">
+                                        You’re almost there
+                                        <span class="student-name"></span>, please continue to the final topic,
+                                        Implement Store Emergency Policy and Procedures.
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="cc-container">
+                                <p>Items to be handled may be:</p>
+                                <ul>
+                                    <li>Awkward in shape</li>
+                                    <li>Large or very small</li>
+                                    <li>Hard to reach</li>
+                                    <li>Located at a different height &ndash; either too low or too high</li>
+                                    <li>Heavy</li>
+                                    <li>Moving</li>
+                                    <li>Potentially hazardous</li>
+                                </ul>
+                                <p>Reduce manual handling injuries by:</p>
+                                <ul>
+                                    <li>Practice safe lifting techniques</li>
+                                    <li>Lighten loads (break loads into smaller quantities)</li>
+                                    <li>Reduce bending, twisting, reaching movements</li>
+                                    <li>Use team lifting</li>
+                                    <li>Use mechanical assistance (e.g. trolleys and adjustable height workbenches and
+                                        seating)</li>
+                                    <li>Prevent muscle strain and fatigue. This includes warming up before working,
+                                        taking rest breaks, and allowing time to get used to a new task</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </section>
+
+            </article>
+
+            <footer>
+                <div class="cover">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <nav id="footermenu"></nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </main>
+
+    <script type="text/javascript"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Help</title>
+	<script src="../../script/lib/jquery.min.js"></script>
+	<link href="../css/normalize.css" rel="stylesheet">
+	<link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="../css/styles.css" rel="stylesheet">
+	<link href="../css/thismod.css" rel="stylesheet">
+	<style>
+		body {
+			overflow-x: auto;
+			background-image: url("images/help_bg.jpg");
+			background-size: 100% auto;
+
+		}
+
+		header {
+			position: static;
+			padding: 0;
+		}
+
+		header .container {
+			padding: 1rem;
+			padding-bottom: 0;
+			padding-top: .5;
+		}
+
+
+		.screen {
+			margin: 0;
+			padding: 0;
+			padding-top: 1rem;
+
+		}
+
+		header .cont-tools {
+			justify-content: flex-end
+		}
+
+		.style-note h3 {
+			margin-bottom: 1.5rem;
+			margin-top: 1rem;
+		}
+
+		.img-fluid {
+			width: 100%;
+			margin-bottom: .5rem;
+		}
+
+		.hamburger {
+			cursor: pointer;
+		}
+
+		@media (max-width: 767.98px) {
+			.screen {
+				padding: 0rem;
+				padding-bottom: 3rem;
+
+			}
+
+			.header .container {
+				padding: 0rem;
+			}
+
+
+			.style-note {
+				box-shadow: none;
+			}
+		}
+
+		@media (min-width: 576px) and (max-width: 767.9px) {
+			.container {
+				max-width: 100%;
+			}
+
+		}
+
+		#biblio_if table {
+			width: 100%;
+
+		}
+
+		td:nth-child(2) p {
+			word-break: break-all;
+		}
+
+		#biblio_if tr td {
+			vertical-align: top;
+			padding-top: 10px;
+		}
+
+		#biblio_if tr {
+			border-bottom: 1px solid #ccc;
+			margin-bottom: 20px;
+
+		}
+
+		#biblio_if tr td:first-child {
+
+			font-weight: bold;
+			padding-right: 20px;
+
+		}
+	</style>
+
+	<script>
+		$(document).ready(function () {
+			$('.hamburger ').click(function () {
+
+				window.close()
+
+			})
+		})
+
+		function htmlInclude(_iframe) {
+			_iframe.parentElement.appendChild((_iframe.contentDocument.body || _iframe.contentDocument).children[0])
+			_iframe.remove()
+		}
+	</script>
+
+
+</head>
+
+<body>
+	<main id="main">
+		<div id="page">
+			<header>
+				<div class="container">
+					<div class="row no-gutters">
+						<div class="col-3 cont-logo">
+							<div class="logo"></div>
+
+						</div>
+
+						<div class="col-9 cont-tools-parent">
+							<div class="row no-gutters">
+								<div class="col-12 cont-tools">
+									<div class="row no-gutters" style="width:100%">
+										<div class="col-9 col-lg-11">
+											<h3>HELP</h3>
+										</div>
+										<div class="col-3 col-lg-1">
+											<a class="hamburger hamburger--slider-r is-active" type="">
+												<span class="hamburger-box">
+													<span class="hamburger-inner"></span>
+												</span>
+											</a>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</header>
+			<section class="screen unlocked ">
+				<div class="container">
+					<div class="row no-gutters">
+						<div class="col-lg-12">
+							<div class="style-note">
+								<h3>The Menu</h3>
+								<div class="row">
+									<div class="col-2 col-lg-2"><img src="images/help.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-10 col-lg-10">
+										<p><strong>Help icon</strong></p>
+										<p>Clicking the Help button opens this screen, to learn about navigation and
+											interaction.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-2 col-lg-2"><img src="images/cc.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-10 col-lg-10">
+										<p><strong>Closed Captions icon</strong></p>
+										<p>By clicking ‘Close Captions’ this will show/hide the transcript for each
+											screen
+											with audio/video.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-2 col-lg-2"><img src="images/closemenu.png" alt=""
+											class="img-fluid">
+									</div>
+									<div class="col-10 col-lg-10">
+										<p><strong>Menu icon</strong></p>
+										<p>The Menu icon or ‘Hamburger button’ show/hides the menu bar items.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-2 col-lg-2"><img src="images/exit.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-10 col-lg-10">
+										<p><strong>Exit icon</strong></p>
+										<p>The Exit button saves the status of your current progress, and exits the
+											module.
+										</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4 col-lg-2"><img src="images/curt.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-8 col-lg-10">
+										<p><strong>Underlined Menu item</strong></p>
+										<p>Indicates the topic you are currently viewing.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4 col-lg-2"><img src="images/dist.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-8 col-lg-10">
+										<p><strong>Disabled Menu item</strong></p>
+										<p>Indicates an unavailable topic. You will need to complete all topics
+											proceeding
+											it first, to gain access. </p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4 col-lg-2"><img src="images/ct.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-8 col-lg-10">
+										<p><strong>Pink Menu item</strong></p>
+										<p>Indicates a completed topic. The topic is now unlocked, and you can freely
+											navigate it at any time. </p>
+									</div>
+								</div>
+
+								<h3>Course navigation and interaction</h3>
+								<div class="row">
+									<div class="col-2 col-lg-2"><img src="images/next.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-10 col-lg-10">
+										<p><strong>Next section icon</strong></p>
+										<p>The down arrow will scroll to the next section in topic. </p>
+										<p><strong>Note:</strong><br>The arrow will be disabled until all activities in
+											the
+											current section are
+											completed. This includes viewing videos, listening to narration, and
+											completing
+											interactions.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4 col-lg-1"><img src="images/video.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-8 col-lg-11">
+										<p><strong>Video icon</strong></p>
+										<p>Clicking this icon will play a video.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-4 col-lg-1"><img src="images/videoct.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-8 col-lg-11">
+										<p><strong>Video control</strong></p>
+										<p>Some browsers allow you to maximise the video screen, clicking the icon will
+											expand the video.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-2 col-lg-2"><img src="images/download.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-10 col-lg-10">
+										<p><strong>Download icon</strong></p>
+										<p>Clicking the ‘Download icon’ will download relevant information to the topic,
+											normally in a PDF format. </p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-2 col-lg-2"><img src="images/watch.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-10 col-lg-10">
+										<p><strong>Watch – Listen – Engage</strong></p>
+										<p>Clicking the ‘Watch – Listen – Engage’ will present information in numerus
+											ways.
+										</p>
+										<p><strong>Note:</strong><br>You will have to click this to enable the next
+											section.
+										</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-2 col-lg-2"><img src="images/exitlt.png" alt="" class="img-fluid">
+									</div>
+									<div class="col-10 col-lg-10">
+										<p><strong>Module complete icon</strong></p>
+										<p>The ‘Module Completion’ button will appear on the last section of the module,
+											allowing you to save and exit module.</p>
+									</div>
+								</div>
+
+								<h3>Bibliography</h3>
+								<div id="biblio_if">
+									<iframe src="../../topics/biblio.html" onload="htmlInclude(this)" id=""></iframe>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</section>
+
+		</div>
+	</main>
+</body>
+
+</html>

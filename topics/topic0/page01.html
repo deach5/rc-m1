@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/thismod.css">
+
+    <script src="../../script/lib/jquery.min.js"></script>
+
+    <script src="../../script/lib/bootstrap.js"></script>
+    <script src="../../script/lib/popper.min.js"></script>
+    <script src="../../script/lib/greensock/TweenMax.min.js"></script>
+    <script src="../../script/lib/scrollmagic/scrollmagic.min.js"></script>
+    <script src="../../script/lib/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+    <script src="../../script/lib/mediaelements/mediaelement.min.js"></script>
+    <script src="../../script/setupScreen.js"></script>
+    <script src="../../script/audiovideo.js"></script>
+    <script src="../../script/activities.js"></script>
+    <script src="../../script/script.js"></script>
+    <script type="module">
+        import jump from "../../script/lib/jump.js";
+            window.jump = jump
+        </script>
+    <style type="text/css">
+        #screen1 {
+            background-image: url("../../assets/images/screenbg/t1s1_bg.jpg");
+        }
+
+        #screen4 .question {
+            margin-bottom: 2rem;
+
+        }
+    </style>
+
+    <script>
+        function setupPage() {
+
+            $('#screen4').each(function (index, aScreen) {
+                $(".submit", aScreen)
+                    .addClass("disabled tracked")
+                    .on({
+                        checkDone: checkDoneEv
+                    });
+
+                $('.question', aScreen).each(function (index, aQuestion) {
+
+                    $('.round', aQuestion).click(function () {
+                        totalAns = $('.cor', aQuestion).length
+                        if (totalAns == 1) {
+                            $(".round", aQuestion).removeClass("selected");
+                        }
+                        $(this).toggleClass("selected");
+                        if ($(".selected", aScreen).length == 3) {
+                            $(aScreen)
+                                .find(".submit")
+                                .removeClass("disabled");
+                        } else {
+                            $(aScreen)
+                                .find(".submit")
+                                .addClass("disabled");
+                        }
+                    });
+                })
+
+                $(".submit", aScreen).click(function () {
+                    var isCorrect = checkCorrect($(".round.selected", aScreen), $(".round.cor",
+                        aScreen));
+                    if (isCorrect) {
+                        swapAudio('s1-2-no')
+                    } else {
+                        swapAudio('s1-2-yes')
+                    }
+                    $(this).trigger('checkDone')
+                })
+
+            })
+
+        }
+    </script>
+
+    <style>
+        #screen3 .rcp-btn.selected {
+            background-color: #000;
+            color: #fff;
+
+        }
+
+        @media (max-width: 768px) {
+            .row.question .col-md-8 p {
+                text-align: center
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="audio-container">
+        <audio id="custom-player" controls="controls" src="../../assets/audio/00_test.mp3" type="audio/mp3"
+            preload="none"></audio>
+    </div>
+
+    <main id="main">
+        <div id="page">
+            <header>
+                <div class="container fixed">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 cont-logo">
+                            <div class="logo"></div>
+
+                        </div>
+                        <div class="col-md-6 cont-title">
+
+                            <h3>
+                                <span class="var-course-title">
+                                    <span></span></h3>
+
+                        </div>
+                        <div class="col-md-3 cont-tools-parent">
+                            <div class="row no-gutters justify-content-end">
+                                <div class="col-sm-12 cont-tools">
+
+                                    <a href="javascript:void(0)" class="close-caption-btn"></a>
+                                    <a href="javascript:void(0)" class="help-btn"></a>
+                                    <a href="javascript:void(0)" class="exit-btn"></a>
+                                    <a class="hamburger hamburger--slider-r is-active" type="">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <nav id="menu"></nav>
+
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <article>
+                <section id="screen1" class="screen style-header ignoreLock bg-h100" data-screenbg="t1s1_bg">
+                    <div class="container">
+                        <div class="topic-label">Hi
+                            <span class="student-name"></span>!</div>
+
+                        <div class="mobile-title">
+                            <h3 class="var-course-title">
+                                <span></h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen2" class="screen style-white  ignoreLock" data-sbid="sb_1">
+                    <div class="container">
+                        <h2 class="screen-heading">Welcome to this module on, Secure Your Business.</h2>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <p>We will cover some important information here, especially in your role as a team
+                                    leader, supervisor or manager. As a leader, the knowledge you gain during this
+                                    module is something you will also need to inform co-workers about, which is a big
+                                    responsibility.</p>
+
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="video-responsive">
+
+                                    <div class="yt-video tracked" data-vid-w="720" data-vid-h="405"
+                                        data-vidid="module1_screen1"></div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="cc-container">
+                            <p>Hi, I&rsquo;d like to introduce you to Susan, the manager at Floral Connection who you
+                                will be guiding your training in this module. Susan is inducting a new team leader Tom,
+                                at Floral Connection, on the basics of maintaining a safe work environment; on
+                                implementing organisational policies and procedures for identifying, preventing, and
+                                reporting potential hazards; and on preventing risks. You&rsquo;ll also meet Kate later,
+                                who was injured during a work shift at Floral Connection.</p>
+                            <p>You will need to assist Susan from time to time, to ensure she is offering correct
+                                instructions to Tom.</p>
+                            <p>Additionally, we will challenge your own understanding with &ldquo;Watch - Listen &ndash;
+                                Engage activities&rdquo; where you will engage in useful information that will help you
+                                to build on your own skills and knowledge.</p>
+                            <p>There are some other important icons and prompts you will need to familiarise yourself
+                                with to navigate this module.</p>
+
+                        </div>
+                    </div>
+
+                </section>
+                <section id="screen3" class="screen nopad activity" data-sbid="sb_2">
+                    <div class="container-large style-yellow padtop">
+                        <div class="container text-center">
+                            <h2 class="screen-heading">Introduction to hazards and risks</h2>
+                            <p>Susan has made the appropriate introductions and begins the induction talking about
+                                Hazards and Risks.</p>
+
+                            <div class="row bs-center">
+                                <div class="col-md-10 instruction">
+                                    <p>Let’s make sure we understand this ourselves by clicking on the correct word for
+                                        each statement.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="container-large style-white padbot">
+                        <div class="questions-container">
+                            <div class="container question">
+                                <div class="row bs-center">
+
+                                    <div class=" col-md-8 insert  style-yellow">
+                                        <p>A ___________ is something that has the potential to cause harm, for
+                                            example, a faulty electrical cord</p>
+                                    </div>
+                                </div>
+
+                                <div class="row no-gutters bs-center">
+
+                                    <a class="rcp-btn optbtn col-md-5 cor">Hazard</a>
+
+                                    <a class="rcp-btn optbtn col-md-5">RISK</a>
+
+                                </div>
+                                <div class="row no-gutters bs-center">
+                                    <div class="col-md-10">
+                                        <a class="rcp-btn submit">SUBMIT</a>
+                                    </div>
+                                </div>
+                                <div class="row bs-center">
+                                    <div class="col-md-10">
+                                        <div class="feedback correct" data-mp3="s1-1-h-correct"></div>
+                                        <div class="feedback incorrect" data-mp3="s1-1-h-incorrect"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="container question hideThis">
+                                <div class="row bs-center">
+
+                                    <div class=" col-md-8 insert  style-yellow">
+                                        <p>A __________ is the potential harm that a person may suffer, for example,
+                                            being electrocuted from using a faulty electrical cord</p>
+                                    </div>
+                                </div>
+
+                                <div class="row no-gutters bs-center">
+
+                                    <a class="rcp-btn optbtn col-md-5 ">Hazard</a>
+
+                                    <a class="rcp-btn optbtn col-md-5 cor">RISK</a>
+
+                                </div>
+                                <div class="row no-gutters bs-center">
+                                    <div class="col-md-10">
+                                        <a class="rcp-btn submit">SUBMIT</a>
+                                    </div>
+                                </div>
+                                <div class="row bs-center">
+                                    <div class="col-md-10">
+                                        <div class="feedback correct" data-mp3="s1-1-r-correct"></div>
+                                        <div class="feedback incorrect" data-mp3="s1-1-r-incorrect"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="cc-container container">
+                            <p>That's right, a Hazard is something that has the potential to cause harm.</p>
+                            <p>Actually, a Hazard is something that has the potential to cause harm.</p>
+                            <p>Correct. That's right, a risk is the potential harm that a person may suffer.</p>
+                            <p>Incorrect. Actually, a risk is the potential harm that a person may suffer.</p>
+
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="screen4" class="screen style-pink" data-sbid="sb_3">
+                    <div class="container">
+                        <h2 class="screen-heading">Employee experience</h2>
+
+
+                        <p class=" text-center">Before we continue onto Hazards with Susan, here are some quick
+                            questions for you,
+                            <span class="student-name"></span>.</p>
+
+
+                        <div class="activity-yes-no">
+                            <div class="col-lg-8 mx-auto">
+                                <div class="instruction text-center">
+                                    <p>Please answer yes or no.</p>
+                                </div>
+
+                                <div class="row question bs-center">
+                                    <div class="col-md-8 ">
+                                        <p>Have you been injured at work?</p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a class="rcp-btn round">Yes</a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a class="rcp-btn round cor">No</a>
+                                    </div>
+                                </div>
+                                <div class="row question bs-center">
+                                    <div class="col-md-8 ">
+                                        <p>Have you seen an accident at work?</p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a class="rcp-btn round">Yes</a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a class="rcp-btn round cor">No</a>
+                                    </div>
+                                </div>
+                                <div class="row question bs-center">
+                                    <div class="col-md-8 ">
+                                        <p>Have you reported an incident at work?</p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a class="rcp-btn round">Yes</a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a class="rcp-btn round cor">No</a>
+                                    </div>
+                                </div>
+
+                                <div class="row bs-center">
+                                    <div class="col-md-12">
+                                        <a class="rcp-btn submit">SUBMIT</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row hideThis">
+                                <div class="col-md-12">
+                                    <div class="highlight-text">
+                                        <h2>HIGHLIGHT-TEXT style</h2>
+                                        <p class="hideThis">You’re not alone. Unfortunately, these things happen too
+                                            often, and they are all examples of risks that can result from hazards in
+                                            the workplace.</p>
+                                        <p class="hideThis">Youdplace.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cc-container">
+
+                            <p>Unfortunately, these things happen too often, and they are all examples of risks that can
+                                result from hazards in the workplace </p>
+
+
+
+
+                        </div>
+
+                    </div>
+                </section>
+
+            </article>
+
+            <footer>
+                <div class="cover">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <nav id="footermenu"></nav>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </main>
+
+</body>
+
+</html>

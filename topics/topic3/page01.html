@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/thismod.css">
+
+    <script src="../../script/lib/jquery.min.js"></script>
+
+    <script src="../../script/lib/bootstrap.js"></script>
+    <script src="../../script/lib/popper.min.js"></script>
+    <script src="../../script/lib/greensock/TweenMax.min.js"></script>
+    <script src="../../script/lib/scrollmagic/scrollmagic.min.js"></script>
+    <script src="../../script/lib/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+    <script src="../../script/lib/mediaelements/mediaelement.min.js"></script>
+    <script src="../../script/setupScreen.js"></script>
+    <script src="../../script/audiovideo.js"></script>
+    <script src="../../script/activities.js"></script>
+    <script src="../../script/script.js"></script>
+    <script type="module">
+        import jump from "../../script/lib/jump.js";
+            window.jump = jump
+        </script>
+    <script>
+        function setupPage() {
+
+
+
+            $('.submit').on({
+                click: function () {
+                    $(this).animate({
+                        opacity: 0,
+                        height: '5px'
+                    }, 1000).addClass('disableEvents')
+                }
+            })
+
+            $('.wle-btn', '#screen3').on({
+                click: function () {
+                    $(this).trigger('checkDone').closest('.screen').addClass('changebg')
+
+                }
+            })
+
+            $('#s3_btn4').on({
+                click: function () {
+                    $('#s3_btn4').trigger('checkDone')
+
+                }
+            })
+
+            $('#screen7 .rcp-btn').on({
+                click: function () {
+                    $(this).trigger('checkDone')
+
+                }
+            })
+
+        }
+    </script>
+
+    <style type="text/css">
+        h5 {
+            font-size: 1rem;
+        }
+
+        .completed .final.hideThis {
+            display: flex;
+            transition: 1s;
+            max-height: 500px;
+            padding: 2rem;
+
+        }
+
+        #screen1 {
+            background-image: url("../../assets/images/screenbg/t1s1_bg.jpg");
+        }
+
+        #screen2 {
+            background-image: url("../../assets/images/screenbg/t4/t4s2_bg.png");
+            background-position: bottom;
+            min-height: 600px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        #s2_image,
+        #s5_image1,
+        #s5_image2 {
+            position: absolute;
+            height: 90%;
+            left: 10%;
+            bottom: 0;
+            width: auto;
+            max-height: 890px;
+        }
+
+        #s5_image2 {
+            left: auto;
+            right: 10%;
+        }
+
+        #screen2 .rcp-btn,
+        #screen2 .submit {
+            background-color: #B31F36;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        #screen2 .rcp-btn.selected {
+            background-color: #000000;
+        }
+
+        #screen2 .submit {
+            margin: 1px 0 0;
+        }
+
+        #screen2 .done .submit {
+            background-color: #B31F36;
+        }
+
+        #screen2 .feedback,
+        #screen2 .introtext {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #B31F36;
+            color: #fff;
+            text-align: center;
+        }
+
+        #screen2 .insert,
+        #screen5 .insert {
+            padding: 1rem 1rem 0;
+            margin: 1rem;
+            text-align: center;
+        }
+
+        #s2_reveal,
+        #s5_reveal {
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            max-height: 0;
+            transition: 1s;
+
+        }
+
+        #s2_reveal {
+            transition-delay: 1s;
+        }
+
+        #s2_reveal.revealed,
+        #s5_reveal.revealed,
+        #s7_reveal.revealed {
+            height: auto;
+            max-height: 1500px;
+        }
+
+        .question.hideThis.showThis {
+            transition-delay: 1s;
+        }
+
+        #screen3 {
+            background-image: url("../../assets/images/screenbg/t4/t4s3_bg.png");
+            background-position: bottom;
+            min-height: 750px;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+        }
+
+        #screen3.changebg {
+            transition: 1s;
+            background-color: #F9AC1B;
+        }
+
+        #screen3 #s3_reveal {
+            overflow: hidden;
+            transition: 1s;
+            max-height: 0;
+
+        }
+
+        #screen3 #s3_reveal.revealed {
+            display: flex;
+            transition: 1s;
+            height: auto;
+            max-height: 2000px;
+            padding-bottom: 1rem;
+        }
+
+        .s3_btn {
+            background-color: #fff;
+            position: relative;
+            margin-bottom: 1rem;
+            opacity: 0;
+            pointer-events: none;
+            cursor: pointer;
+
+        }
+
+        .s3_btn:nth-of-type(1) {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .s3_btn.revealed {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .s3_btn.done-reveal {
+            background-color: #F06A46;
+        }
+
+        .s3_btn.done-reveal .title {
+            color: #ffffff;
+        }
+
+        .s3_btn.done-reveal::before {
+
+            border-top-color: #F06A46;
+
+        }
+
+        .s3_btn::before {
+            left: calc(50% - 40px);
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-top: 30px solid #fff;
+        }
+
+        .s3_btn .title {
+            color: #F06A46;
+            padding: 0.5rem;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .s3_btn.revealed {
+            display: flex;
+            opacity: 1;
+            transition: 1s;
+
+        }
+
+        .s3_btn .text {
+            color: #000;
+            padding: 0.5rem;
+        }
+
+        .s3_btn .ifnot {
+            color: #fff;
+            padding: 0.5rem;
+            position: relative;
+            background-image: url("../../assets/images/t4/t4s3_ifnot_bg.png");
+            background-size: 100%;
+            font-size: 0.7rem;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+        }
+
+        .s3_btn.done-reveal .ifnot {
+            background-image: none;
+            opacity: 0;
+
+        }
+
+        .ifnot span {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+
+        }
+
+        #s3_btn5::before {
+            display: none;
+        }
+
+        #screen4 .padbot {
+            background-image: url("../../assets/images/screenbg/t4/t4s4_bg.png");
+            min-height: 17rem;
+
+        }
+
+        #screen4 .video-responsive {
+            margin-bottom: -15rem;
+        }
+
+        #screen4 .padtop {
+            min-height: 17rem;
+        }
+
+        #screen5 {
+            background-image: url("../../assets/images/screenbg/t4/t4s5_bg2.png");
+            background-position: bottom;
+            background-repeat: repeat-x;
+            min-height: 48rem;
+        }
+
+        #screen5 .optbtn {
+            margin: 0 !important;
+        }
+
+        #screen6 .padtop {
+            background-image: url("../../assets/images/screenbg/t4/t4s6_bg_top.png");
+            background-position: top;
+            background-repeat: repeat-x;
+            min-height: 15rem;
+
+        }
+
+        #screen6 .padbot {
+            background-image: url("../../assets/images/screenbg/t4/t4s6_bg_bot.png");
+            background-position: bottom;
+            background-repeat: repeat-x;
+            min-height: 10rem;
+        }
+
+        #screen5 .feedback {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        #screen7 {
+
+            background-image: url("../../assets/images/screenbg/t4/t4s7_bg.png");
+
+        }
+
+        #screen7 .rcp-btn {
+            background-color: #f9ac1b;
+            color: #000;
+            font-weight: normal;
+            margin: 0;
+
+        }
+
+        #screen7 .rcp-btn.done {
+            background-color: #fff;
+        }
+
+        #screen7 .card-body .col-md-4 span {
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #000;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        #screen7 .card-body .col-md-4 {
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+            padding: 0.5rem;
+            background-color: #fff;
+
+        }
+
+        #collapse6 .card-body .col-md-4 {
+
+            border-bottom: 1px solid #000;
+
+        }
+
+        @media (max-width: 768px) {
+
+            #s2_image,
+            #s5_image1,
+            #s5_image2 {
+                display: none;
+
+            }
+
+            .ifnot {
+                background-color: #000;
+            }
+
+            .ifnot span {
+                position: static;
+                text-align: center;
+                display: block;
+            }
+
+            .s3_btn.adown::before {
+                border-top-color: #000;
+
+            }
+
+        }
+
+        .style-white .rcp-btn.submit {
+            margin: 0px;
+            margin-top: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="audio-container">
+        <audio id="custom-player" controls="controls" src="../../assets/audio/00_test.mp3" preload="none"></audio>
+    </div>
+    <main id="main">
+        <div id="page">
+            <header>
+                <div class="container fixed">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 cont-logo">
+                            <div class="logo"></div>
+
+                        </div>
+                        <div class="col-md-6 cont-title">
+
+                            <h3>
+                                <span class="var-course-title"></h3>
+
+                        </div>
+                        <div class="col-md-3 cont-tools-parent">
+                            <div class="row no-gutters justify-content-end">
+                                <div class="col-sm-12 cont-tools">
+                                    <a href="javascript:void(0)" class="close-caption-btn"></a>
+                                    <a href="javascript:void(0)" class="help-btn"></a>
+                                    <a href="javascript:void(0)" class="exit-btn"></a>
+                                    <a class="hamburger hamburger--slider-r is-active" type="">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <nav id="menu"></nav>
+
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <article>
+                <section id="screen1" class="screen style-header ignoreLock bg-h100">
+                    <div class="container">
+
+                        <div class="topic-label">Hazard and Risk Control</div>
+
+                        <div class="mobile-title">
+                            <h3 class="var-course-title"></h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen2" class="screen style-white  ignoreLock" data-sbid="sb_17">
+                    <div class="container">
+                        <img src="../../assets/images/t4/t4s2_image1.png" id="s2_image" alt="">
+                        <h2 class="screen-heading">Activity: Risk identification or control</h2>
+                        <div class="row bs-center">
+                            <div class="col-md-8">
+                                <div class="watch-listen-cont static">
+                                    <a href="#" class="wle-btn tracked" data-mp3="s13-0" rcp-show="#s2_reveal"
+                                        rcp-delay="2000">Watch – Listen – Engage!</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div id="s2_reveal" class="bs-center activity" style="margin-top:4rem">
+                                <div class="row bs-center">
+                                    <div class="col-md-8">
+                                        <div class="introtext">
+                                            <p>
+                                                <strong>Susan will now give examples of Controls and Hazards.
+                                                </strong>
+                                            </p>
+                                            <p>
+                                                <strong>Select whether each of the examples provided is a Control or a
+                                                    Hazard, then press submit.</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="questions-container">
+                                    <div class="container question tracked">
+                                        <div class="row no-gutters  bs-center">
+
+                                            <div class=" col-md-8 insert  style-black">
+                                                <p>Dark stairwell with uneven steps
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bs-center">
+
+                                            <a class="rcp-btn optbtn col-md-4 ">CONTROL</a>
+
+                                            <a class="rcp-btn optbtn col-md-4 cor">HAZARD</a>
+
+                                        </div>
+                                        <div class="row no-gutters bs-center">
+                                            <div class="col-md-8">
+                                                <a class="rcp-btn submit disabled">SUBMIT</a>
+                                            </div>
+                                        </div>
+                                        <div class="row bs-center">
+                                            <div class="col-md-8">
+                                                <div class="feedback correct">
+                                                    <strong>Hazard</strong>
+                                                    - A dark stairwell with uneven surface is a Hazard as it could
+                                                    potentially cause risk an incident (harm or injury) to people.
+                                                </div>
+                                                <div class="feedback incorrect">
+                                                    <strong>Hazard</strong>
+                                                    - A dark stairwell with uneven surface is a Hazard as it could
+                                                    potentially cause risk an incident (harm or injury) to people.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="container question tracked hideThis">
+                                        <div class="row bs-center">
+
+                                            <div class=" col-md-8 insert  style-black">
+                                                <p>Inserting lighting in a dark stairwell and resurfacing the steps
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bs-center">
+
+                                            <a class="rcp-btn optbtn col-md-4 ">CONTROL</a>
+
+                                            <a class="rcp-btn optbtn col-md-4 cor">HAZARD</a>
+
+                                        </div>
+                                        <div class="row no-gutters bs-center">
+                                            <div class="col-md-8">
+                                                <a class="rcp-btn submit disabled">SUBMIT</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="row bs-center">
+                                            <div class="col-md-8">
+                                                <div class="feedback correct">
+
+                                                    <strong>Control</strong>
+                                                    - After a hazard has been identified, a risk assessment is
+                                                    conducted to identify what actions (controls) need to take place to
+                                                    mitigate the risk and reduce harm.
+
+                                                </div>
+                                                <div class="feedback incorrect">
+
+                                                    <strong>Control</strong>
+                                                    - After a hazard has been identified, a risk assessment is
+                                                    conducted to identify what actions (controls) need to take place to
+                                                    mitigate the risk and reduce harm.
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row final hideThis text-center no-gutters">
+
+                                            <div class="col-md-12">
+                                                <strong>Please scroll to continue to The Hierarchy of Control.</strong>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="cc-container">
+                            <p>As it’s not always possible to eliminate a hazard, as an organisation however, we should
+                                try to make hazards less dangerous by looking at controlling the hazards and preventing
+                                risk. </p>
+                            <p>What do I mean by Control? A Control is an action taken to reduce risk caused by a
+                                hazard. Sometimes, it will require more than one of the risk control measures to
+                                effectively reduce exposure to risks.</p>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="screen3" class="screen" data-sbid="sb_18">
+                    <div class="container">
+
+                        <h2 class="screen-heading">Activity: The hierarchy of control</h2>
+
+                        <div class="row bs-center">
+                            <div class="col-md-8 text-center">
+                                <p>Susan will now explain the Hierarchy of Control.</p>
+                                <div class="watch-listen-cont static">
+                                    <a href="#" class="wle-btn" data-mp3="s14-0" rcp-show="#s3_reveal"
+                                        rcp-delay="1000">Watch
+                                        – Listen – Engage!</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="s3_reveal" class="row hideThis bs-center" style="margin-top:4rem">
+
+                            <div class="col-md-12 text-center">
+                                <p> <strong>Click on each section of the Hierarchy of Control to reveal how it’s used
+                                        to manage
+                                        a hazard.</strong>
+                                </p>
+                                <a id="s3_btn1" class="row s3_btn adown no-gutters" rcp-show="#s3_btn2"
+                                    rcp-delay="1000">
+                                    <div class="col-md-3 title">1. Elimination</div>
+                                    <div class="col-md-7 text">
+                                        <p>
+                                            <strong>Can the hazard be eliminated?</strong><br>
+                                            Yes, if a piece of dangerous machinery can be removed.</p>
+                                    </div>
+                                    <div class="col-md-2 ifnot">
+                                        <span>IF NOT</span></div>
+                                </a>
+                                <a id="s3_btn2" class="row s3_btn adown no-gutters" rcp-show="#s3_btn3"
+                                    rcp-delay="1000">
+                                    <div class="col-md-3 title">2. SUBSTITUTION</div>
+                                    <div class="col-md-7 text">
+                                        <p>
+                                            <strong>Can the hazard be substituted with a lower risk option?</strong><br>
+                                            Yes, if you can substitute the dangerous machinery for a safer tool.</p>
+                                    </div>
+                                    <div class="col-md-2 ifnot">
+                                        <span>IF NOT</span></div>
+                                </a>
+                                <a id="s3_btn3" class="row s3_btn adown no-gutters" rcp-show="#s3_btn4"
+                                    rcp-delay="1000">
+                                    <div class="col-md-3 title">3. ENGINEERING</div>
+                                    <div class="col-md-7 text">
+                                        <p>
+                                            <strong>Can the hazard be engineered or designed out?</strong><br>
+                                            Yes, by installing a safety STOP switch on the dangerous machinery.</p>
+                                    </div>
+                                    <div class="col-md-2 ifnot">
+                                        <span>IF NOT</span></div>
+                                </a>
+                                <a id="s3_btn4" class="row s3_btn adown no-gutters tracked" rcp-show="#s3_btn5"
+                                    rcp-delay="1000">
+                                    <div class="col-md-3 title">4. ADMINISTRATION</div>
+                                    <div class="col-md-7 text">
+                                        <p>
+                                            <strong>Can administrative controls minimise the risk?</strong><br>
+                                            Yes, by providing training on the proper use of the dangerous machinery.</p>
+                                    </div>
+                                    <div class="col-md-2 ifnot">
+                                        <span>IF NOT</span></div>
+                                </a>
+                                <a id="s3_btn5" class="row s3_btn adown no-gutters">
+                                    <div class="col-md-3 title">5. PPE</div>
+                                    <div class="col-md-7 text">
+                                        <p>
+                                            <strong>Can Personal Protective Equipment minimise the risk?</strong><br>
+                                            Yes, providing safety glass, protective gloves and other relevant PPE to
+                                            those operating dangerous machinery minimises risk.</p>
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="cc-container">
+                            <p>The Hierarchy of Control gives a clear step- by- step process to effectively and
+                                efficiently control hazards.
+                            </p>
+
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="screen4" class="screen nopad" data-sbid="sb_19">
+                    <div class="container-large style-purple padtop">
+                        <div class="container text-center">
+                            <h2 class="screen-heading">Reviewing control measures</h2>
+
+                            <div class="row bs-center">
+                                <div class="col-md-10">
+                                    <div class="video-responsive">
+
+                                        <div class="yt-video tracked" data-vid-w="720" data-vid-h="405"
+                                            data-vidid="module1_screen15b"></div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="container-large style-white padbot">
+                        <div class="container" style="margin-top:15rem;">
+                            <div class="row bs-center final hideThis">
+                                <div class="col-md-10 text-center">
+                                    <p>
+                                        <strong>If problems are found, go back through the risk management steps,
+                                            review the relevant information and make further decisions about risk
+                                            control.</strong>
+                                    </p>
+                                    <p>Control measures for serious risks should be reviewed more frequently.</p>
+
+                                    <div class="watch-listen-cont download static">
+                                        <a href="../../assets/docs/4.Managing_WHS_Risks_Mod01_SYB_RD.pdf"
+                                            target="_blank" class="wle-btn">Download How to manage WHS Risks.</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="cc-container container">
+                            <p>There are certain situations where you must review your control measures under the WHS
+                                Regulations and, if necessary, revise them. A review is required:</p>
+                            <ul>
+                                <li>When the control measure does not control the risk, it was implemented to control
+                                </li>
+                                <li>Before a change at the workplace which is likely to give rise to a new or different
+                                    health and safety risk that the control measure may not effectively control</li>
+                                <li>If a new hazard or risk is identified</li>
+                                <li>If the results of consultation indicate that a review is necessary</li>
+                                <li>If a health and safety representative requests a review and they reasonably believe
+                                    that a circumstance referred to above affects or may affect the health and safety
+                                    of a member of the work group they represent.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="screen5" class="screen style-orange" data-sbid="sb_20">
+                    <div class="container">
+
+                        <img src="../../assets/images/t4/t4s5_image1.png" id="s5_image1" alt="">
+
+                        <img src="../../assets/images/t4/t4s5_image2.png" id="s5_image2" alt="">
+
+                        <div class="row bs-center">
+                            <div class="col-md-10 text-center">
+                                <h2 class="screen-heading">Activity: Risk identification or control</h2>
+                                <p>Susan gives Tom the activity below. Let&rsquo;s make sure Susan assesses Tom
+                                    accurately.</p>
+                                <p>You have come back to work from a lunch break and notice a long extension cord
+                                    running across the hallway leading to the staffroom.</p>
+                                <p>Answer the following questions in regards to the extension cord.</p>
+                            </div>
+                        </div>
+
+                        <div class="row bs-center">
+                            <div class="col-md-8">
+                                <div class="watch-listen-cont static">
+                                    <a href="#" class="wle-btn" rcp-show="#s5_reveal" rcp-delay="2000">Watch – Listen –
+                                        Engage!</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+
+                            <div id="s5_reveal" class="bs-center activity row no-gutters" style="margin-top:4rem">
+
+                                <div class=" col-lg-10 questions-container style-white">
+                                    <div class="container question tracked">
+
+                                        <div class="row no-gutters  bs-center">
+
+                                            <div class=" col-md-8 insert style-black">
+                                                <p>The long extension cord running across a hallway is an example of a
+                                                    _______?</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bs-center">
+                                            <a class="rcp-btn optbtn col-md-4 cor">HAZARD</a>
+                                            <a class="rcp-btn optbtn col-md-4">CONTROL</a>
+                                            <a class="rcp-btn optbtn col-md-4">RISK ASSESSMENT</a>
+
+                                        </div>
+                                        <div class="row no-gutters bs-center">
+                                            <div class="col-lg-9">
+                                                <a class="rcp-btn submit disabled">SUBMIT</a>
+                                            </div>
+                                        </div>
+                                        <div class="row bs-center">
+                                            <div class="col-lg-9">
+                                                <div class="feedback correct">
+                                                    <strong>Hazard</strong>
+                                                    - The long extension cord running across a hallway is a trip hazard
+                                                    as it has the potential to cause a trip and fall incident where
+                                                    someone could be hurt.
+                                                </div>
+                                                <div class="feedback incorrect">
+                                                    <strong>Hazard</strong>
+                                                    - The long extension cord running across a hallway is a trip hazard
+                                                    as it has the potential to cause a trip and fall incident where
+                                                    someone could be hurt.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="container question tracked hideThis">
+
+                                        <div class="row no-gutters  bs-center">
+
+                                            <div class=" col-md-8 insert  style-black">
+                                                <p>A _______ is conducted to identify what actions (controls) need to
+                                                    take place to mitigate a risk and reduce harm.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bs-center">
+                                            <a class="rcp-btn optbtn col-md-4 cor">HAZARD</a>
+                                            <a class="rcp-btn optbtn col-md-4">CONTROL</a>
+                                            <a class="rcp-btn optbtn col-md-4">RISK ASSESSMENT</a>
+
+                                        </div>
+                                        <div class="row no-gutters bs-center">
+                                            <div class="col-lg-9">
+                                                <a class="rcp-btn submit disabled">SUBMIT</a>
+                                            </div>
+                                        </div>
+                                        <div class="row bs-center">
+                                            <div class="col-lg-9">
+                                                <div class="feedback correct">
+                                                    <strong>Risk Assessment</strong>
+                                                    - A risk assessment enables you to identify controls to manage
+                                                    risks. .
+                                                </div>
+                                                <div class="feedback incorrect">
+                                                    <strong>Risk Assessment</strong>
+                                                    - An action implemented to reduce/eliminate the risk of an incident
+                                                    is a control.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="container question tracked hideThis">
+
+                                        <div class="row no-gutters  bs-center">
+
+                                            <div class=" col-md-8 insert  style-black">
+                                                <p>Safety Velcro placed over a cord is an example of a _______?
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bs-center">
+                                            <a class="rcp-btn optbtn col-md-4 cor">HAZARD</a>
+                                            <a class="rcp-btn optbtn col-md-4">CONTROL</a>
+                                            <a class="rcp-btn optbtn col-md-4">RISK ASSESSMENT</a>
+
+                                        </div>
+                                        <div class="row no-gutters bs-center">
+                                            <div class="col-lg-9">
+                                                <a class="rcp-btn submit disabled">SUBMIT</a>
+                                            </div>
+                                        </div>
+                                        <div class="row bs-center">
+                                            <div class="col-lg-9">
+                                                <div class="feedback correct">
+                                                    <strong>Control</strong>
+                                                    - An action implemented to reduce/eliminate the risk of an incident
+                                                    is a control.
+                                                </div>
+                                                <div class="feedback incorrect">
+                                                    <strong>Control</strong>
+                                                    - An action implemented to reduce/eliminate the risk of an incident
+                                                    is a control.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section id="screen6" class="screen nopad style-yellow" data-sbid="sb_21">
+                    <div class="container-large  padtop">
+                        <div class="container text-center">
+                            <h2 class="screen-heading">Hazards and risks, a recap</h2>
+                            <p>In the next section of this module Susan discusses new topics relevant to workplace
+                                health and safety. Before we do that, however, let’s recap on what we’ve covered so
+                                far.</p>
+
+                            <div class="row bs-center">
+                                <div class="col-md-10">
+                                    <div class="video-responsive">
+
+                                        <div class="yt-video tracked" data-vid-w="720" data-vid-h="405"
+                                            data-vidid="module1_screen17"></div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-10" style="margin-top:2rem">
+
+                                    <p>The following sections provides examples of hazards and risks, and also provides
+                                        examples of what employees and employers can do to prevent the hazards and
+                                        risks.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="container-large padbot">
+                        <div class="container"></div>
+                        <div class="cc-container container">
+                            <p>Whenever you detect a hazard, assess the risk by asking yourself two questions:</p>
+                            <ol>
+                                <li>How likely is it that the hazard could harm me or someone else?&nbsp;</li>
+                                <li>How badly could I or someone else be harmed?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="screen7" class="screen" data-sbid="sb_22">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col">
+
+
+                                <h2 class="screen-heading">Activity - hazards and risks, a recap</h2>
+                                <p>Within the Employer and Employee columns of the table below, things like Personal
+                                    Protective
+                                    Equipment (PPE) are listed, and will be explained in more detail later in this
+                                    module.
+                                </p>
+                                <p>Click on each item below to view the risks and the duty of care of the employer and
+                                    the
+                                    employees.</p>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="accordion row bs-center no-gutters" id="s7_reveal">
+                            <div class="card col-md-8">
+                                <div class="card-header" id="car1">
+                                    <h5 class="mb-0">
+                                        <a class="rcp-btn tracked" type="button" data-toggle="collapse"
+                                            data-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                                            Boxcutters
+                                        </a>
+                                    </h5>
+                                </div>
+
+                                <div id="collapse0" class="collapse" aria-labelledby="car1" data-parent="#s7_reveal">
+                                    <div class="card-body">
+
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <span>Risks</span>
+                                                <p>Cuts</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employer Duty</span>
+                                                <ul>
+                                                    <li>Provide appropriate cutters</li>
+                                                    <li>Provide safe storage for cutters</li>
+                                                    <li>Provide appropriate gloves</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employees Duty</span>
+                                                <ul>
+                                                    <li>Work carefully &ndash; follow instructions and training</li>
+                                                    <li>Use gloves provided</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card col-md-8">
+                                <div class="card-header" id="car2">
+                                    <h5 class="mb-0">
+                                        <a class="rcp-btn tracked" type="button" data-toggle="collapse"
+                                            data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                            Knives, deli slicers and powered cutting equipment
+                                        </a>
+                                    </h5>
+                                </div>
+
+                                <div id="collapse1" class="collapse" aria-labelledby="car2" data-parent="#s7_reveal">
+                                    <div class="card-body">
+
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <span>Risks</span>
+                                                <p>Cuts</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employer Duty</span>
+                                                <ul>
+                                                    <li>All employees must have PPE and training before using this type
+                                                        of equipment</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employees Duty</span>
+                                                <ul>
+                                                    <li>Work carefully – follow instructions and training</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card col-md-8">
+                                <div class="card-header" id="car2">
+                                    <h5 class="mb-0">
+                                        <a class="rcp-btn tracked" type="button" data-toggle="collapse"
+                                            data-target="#collapse2" aria-expanded="true"
+                                            aria-controls="collapse2">Slippery floors</a>
+                                    </h5>
+                                </div>
+                                <div id="collapse2" class="collapse" aria-labelledby="car2" data-parent="#s7_reveal">
+                                    <div class="card-body">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <span>Risks</span>
+                                                <p>Slips or falls</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employer Duty</span>
+                                                <ul>
+                                                    <li>
+                                                        Provide floor mats</li>
+                                                    <li>
+                                                        Provide non-slip shoes</li>
+                                                    <li>
+                                                        Provide bucket, mop, detergent for quick clean-up of spills</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employees Duty</span>
+                                                <ul>
+                                                    <li>Wear non-slip shoes</li>
+                                                    <li>Clean up spills quickly</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card col-md-8">
+                                <div class="card-header" id="car3">
+                                    <h5 class="mb-0">
+                                        <a class="rcp-btn tracked" type="button" data-toggle="collapse"
+                                            data-target="#collapse3" aria-expanded="true"
+                                            aria-controls="collapse3">Cleaning products
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapse3" class="collapse" aria-labelledby="car3" data-parent="#s7_reveal">
+                                    <div class="card-body">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <span>Risks</span>
+                                                <p>Skin contact may cause irritation or dermatitis</p>
+
+                                                <p>Vapours or fumes may cause headaches and/or respiratory problems</p>
+
+                                                <p>Long-term exposure may lead to chronic (ongoing) health effects</p>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employer Duty</span>
+                                                <ul>
+                                                    <li>
+                                                        Use the least hazardous product for each job
+                                                    </li>
+                                                    <li>
+                                                        Ensure good ventilation
+                                                    </li>
+                                                    <li>
+                                                        Make sure safety information is on label and Material Safety
+                                                        Data Sheet (MSDS) is provided
+                                                    </li>
+                                                    <li>
+                                                        Provide appropriate personal protective equipment (PPE)
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employees Duty</span>
+                                                <ul>
+                                                    <li>
+                                                        Use personal protective equipment (PPE) when provided – this
+                                                        could include rubber gloves, eye protection
+                                                    </li>
+                                                    <li>
+                                                        Read safety information on label and Material Safety Data Sheet
+                                                        (MSDS)
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card col-md-8">
+                                <div class="card-header" id="car4">
+                                    <h5 class="mb-0">
+                                        <a class="rcp-btn tracked" type="button" data-toggle="collapse"
+                                            data-target="#collapse4" aria-expanded="true"
+                                            aria-controls="collapse4">Contact with public
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapse4" class="collapse" aria-labelledby="car4" data-parent="#s7_reveal">
+                                    <div class="card-body">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <span>Risks</span>
+                                                <p>Abuse, assault, robbery</p>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employer Duty</span>
+
+                                                <ul>
+                                                    <li>
+                                                        Provide adequate security
+                                                    </li>
+                                                    <li>
+                                                        Provide barriers where money is handled
+                                                    </li>
+                                                    <li>
+                                                        Provide adequate outside lighting
+                                                    </li>
+                                                    <li>
+                                                        Schedule at least two people per shift
+                                                    </li>
+                                                    <li>
+                                                        Arrange customer service and emergency response training
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employees Duty</span>
+                                                <ul>
+                                                    <li>
+                                                        Follow procedures and instructions regarding security and
+                                                        contact with the public
+                                                    </li>
+                                                    <li>
+                                                        Report any concerns immediately
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card col-md-8">
+                                <div class="card-header" id="car5">
+                                    <h5 class="mb-0">
+                                        <a class="rcp-btn tracked" type="button" data-toggle="collapse"
+                                            data-target="#collapse5" aria-expanded="true"
+                                            aria-controls="collapse5">Standing for long periods
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapse5" class="collapse" aria-labelledby="car5" data-parent="#s7_reveal">
+                                    <div class="card-body">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <span>Risks</span>
+                                                <p>Back injuries, varicose veins, fatigue</p>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employer Duty</span>
+
+                                                <ul>
+                                                    <li>
+                                                        Provide floor mats
+                                                    </li>
+                                                    <li>
+                                                        Provide regular breaks
+                                                    </li>
+                                                    <li>
+                                                        Rotate jobs
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employees Duty</span>
+
+                                                <ul>
+
+                                                    <li>
+                                                        Take breaks when scheduled
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card col-md-8">
+                                <div class="card-header" id="car6">
+                                    <h5 class="mb-0">
+                                        <a class="rcp-btn tracked" type="button" data-toggle="collapse"
+                                            data-target="#collapse6" aria-expanded="true"
+                                            aria-controls="collapse6">Manual handling (bending,
+                                            reaching, stretching, pulling, lifting, repetitive motions, checkout
+                                            scanners)</a>
+                                    </h5>
+                                </div>
+                                <div id="collapse6" class="collapse" aria-labelledby="car6" data-parent="#s7_reveal">
+                                    <div class="card-body">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <span>Risks</span>
+                                                <p>Musculoskeletal disorders, including sprains and strains</p>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employer Duty</span>
+                                                <ul>
+                                                    <li>
+                                                        Re-design checkout stands
+                                                    </li>
+                                                    <li>
+                                                        Rotate jobs
+                                                    </li>
+                                                    <li>
+                                                        Provide approved stepladder or step stool for stacking above
+                                                        shoulder height
+                                                    </li>
+                                                    <li>
+                                                        Schedule regular breaks
+                                                    </li>
+                                                    <li>
+                                                        Provide mechanical aids
+                                                    </li>
+                                                    <li>
+                                                        Store heavy items on lower shelves
+                                                    </li>
+                                                    <li>
+                                                        Use team lifting
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span>Employees Duty</span>
+                                                <ul>
+                                                    <li>
+                                                        Follow instructions and training
+                                                    </li>
+                                                    <li>
+                                                        Use mechanical aids, stepladders where provided
+                                                    </li>
+                                                    <li>
+                                                        Seek help when you think a team lift is required
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row final hideThis text-center">
+                            <div class="col-md-8">
+                                <p><strong>Let’s now move onto the topic of Dangerous Goods.</strong></p>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+            </article>
+
+            <footer>
+                <div class="cover">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <nav id="footermenu"></nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <script type="text/javascript"></script>
+
+</body>
+
+</html>-

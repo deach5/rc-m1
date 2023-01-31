@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/thismod.css">
+
+    <script src="../../script/lib/jquery.min.js"></script>
+
+    <script src="../../script/lib/bootstrap.js"></script>
+    <script src="../../script/lib/popper.min.js"></script>
+    <script src="../../script/lib/greensock/TweenMax.min.js"></script>
+    <script src="../../script/lib/scrollmagic/scrollmagic.min.js"></script>
+    <script src="../../script/lib/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+    <script src="../../script/lib/mediaelements/mediaelement.min.js"></script>
+    <script src="../../script/setupScreen.js"></script>
+    <script src="../../script/audiovideo.js"></script>
+    <script src="../../script/activities.js"></script>
+    <script src="../../script/script.js"></script>
+    <script type="module">
+        import jump from "../../script/lib/jump.js";
+            window.jump = jump
+        </script>
+    <script>
+        function setupPage() {
+            $('#screen3').each(function (index, _screen) {
+
+                $('#s3_wle1', _screen).on({
+                    click: function () {
+                        $('.single-panel', _screen).addClass('showQuestion')
+
+                    }
+                })
+            })
+        }
+    </script>
+
+    <style type="text/css">
+        .completed .final.hideThis {
+            display: flex;
+            transition: 1s;
+            max-height: 500px;
+            padding: 1rem;
+            background-color: #fff;
+            margin-top: 2rem;
+
+        }
+
+        #screen1 {
+            background-image: url("../../assets/images/screenbg/t1s1_bg.jpg");
+        }
+
+        #screen2 {
+            background-image: url("../../assets/images/screenbg/t4/t4s2_bg.png");
+        }
+
+        #s2_image {
+            position: absolute;
+            height: 90%;
+            left: 10%;
+            bottom: 0;
+            width: auto;
+            max-height: 890px;
+        }
+
+        #screen3 {
+            background-image: url("../../assets/images/screenbg/t5s3_bg.jpg");
+            min-height: 780px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top center;
+        }
+
+        #screen3 #s3_reveal {
+            height: 0;
+            max-height: 0;
+            transition: 2s;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        #screen3 #s3_reveal.revealed {
+            max-height: 1000px;
+            height: auto;
+            opacity: 1;
+            overflow: visible;
+        }
+
+        #screen3 .showQuestion #s3_wle1 {
+            display: none;
+        }
+
+        #screen3 .showQuestion .body-text {
+            display: none;
+        }
+
+        #screen3 .showQuestion .heading {
+            color: #fff;
+            background-color: #eb185a;
+        }
+
+        @media (max-width: 767.98px) {
+            #screen4 {
+                background-size: auto 100%;
+                background-position: -670px;
+            }
+
+            #screen2 #s2_image {
+                display: none;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="audio-container">
+        <audio id="custom-player" controls="controls" src="../../assets/audio/00_test.mp3" preload="none"></audio>
+    </div>
+    <main id="main">
+        <div id="page">
+            <header>
+                <div class="container fixed">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 cont-logo">
+                            <div class="logo"></div>
+
+                        </div>
+                        <div class="col-md-6 cont-title">
+
+                            <h3>
+                                <span class="var-course-title"></h3>
+
+                        </div>
+                        <div class="col-md-3 cont-tools-parent">
+                            <div class="row no-gutters justify-content-end">
+                                <div class="col-sm-12 cont-tools">
+                                    <a href="javascript:void(0)" class="close-caption-btn"></a>
+                                    <a href="javascript:void(0)" class="help-btn"></a>
+                                    <a href="javascript:void(0)" class="exit-btn"></a>
+                                    <a class="hamburger hamburger--slider-r is-active" type="">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <nav id="menu"></nav>
+
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <article>
+                <section id="screen1" class="screen style-header ignoreLock bg-h100" data-sbid="">
+                    <div class="container">
+                        <div class="topic-label">Dangerous Goods</div>
+
+                        <div class="mobile-title">
+                            <h3 class="var-course-title"></h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen2" class="screen ignoreLock" data-sbid="sb_23">
+                    <img src="../../assets/images/t4/t4s2_image1.png" id="s2_image" alt="">
+                    <div class="container text-center">
+
+                        <h2 class="screen-heading">Manage dangerous goods</h2>
+                        <p>Listen Susan discuss how to manage dangerous goods.</p>
+                        <div class="row bs-center">
+                            <div class="col-md-10">
+                                <div class="video-responsive">
+
+                                    <div class="yt-video tracked" data-vid-w="720" data-vid-h="405"
+                                        data-vidid="module1_screen18"></div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="cc-container text-left">
+                            <p>Hazardous substances are classified by their potential health effects, whether acute
+                                (immediate) or chronic (long-term). Dangerous goods are classified by immediate
+                                physical or chemical effects, such as:</p>
+                            <ul>
+                                <li>Fire</li>
+                                <li>Corrosion</li>
+                                <li>Explosion</li>
+                                <li>Poisoning</li>
+                            </ul>
+                            <p>Your workplace may use hazardous substances and dangerous goods.</p>
+                            <p>Hazardous materials may be things you see every day such as paint, glue, cleaning liquid
+                                and powders. Dangerous goods may be corrosive, flammable, explosive, spontaneously
+                                combustible, toxic, oxidising, or water-reactive. They must be identified in the
+                                workplace (and when being transported) by different coloured 'diamond' symbols.</p>
+                            <p>An accident involving dangerous goods could severely damage property or the environment.
+                            </p>
+                            <p>Harm to health may happen suddenly (acute), such as dizziness, nausea and itchy eyes or
+                                skin; or it may occur gradually over the years (chronic), such as dermatitis or cancer.
+                                Some people can be more susceptible than others.</p>
+                            <p>It is the responsibility of your employer to provide you with:</p>
+                            <ul>
+                                <li>Safe work procedures for handling substances and dangerous goods information, such
+                                    as Safety Data Sheets</li>
+                                <li>Training and supervision</li>
+                                <li>First aid treatment for hazardous substances and dangerous goods should be part of
+                                    your training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen3" class="screen style-white imagebg" data-sbid="sb_24">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="single-panel">
+                                    <div>
+                                        <h2 class="heading">Safety data sheets</h2>
+                                    </div>
+                                    <div class="body">
+                                        <div class="body-text">
+                                            <p>
+                                                After listening to Susan speak about Dangerous goods,Tom asks the
+                                                question.</p>
+
+                                            <p>You mentioned Safety Data Sheets, can you explain what that is please?
+                                            </p>
+
+                                            <p>Listen to Susan’s answer</p>
+
+                                            <div class="watch-listen-cont ">
+                                                <a id="s3_wle1" href="#" class="wle-btn tracked" rcp-show="#s3_reveal"
+                                                    data-mp3="s19-p1-new">Watch – Listen – Engage!</a>
+                                            </div>
+                                        </div>
+
+                                        <div id="s3_reveal" class="">
+                                            <div class="row bs-center">
+                                                <div class="col-md">
+                                                    <ul>
+                                                        <li>Follow safe work procedures</li>
+                                                        <li>Always wear the right personal protective equipment and
+                                                            clothing provided by your employer</li>
+                                                        <li>Do not eat, drink or smoke while working with a hazardous
+                                                            substance or dangerous goods</li>
+                                                        <li>Do not keep food or drink near the substances</li>
+                                                        <li>Wash your hands and face and other exposed areas with soap
+                                                            and water before going to the toilet, eating and drinking
+                                                        </li>
+                                                    </ul>
+                                                    <p>Download and read the example SDS, and ask your workplace for
+                                                        access to relevant SDS before using any hazardous substance.</p>
+
+                                                    <div class="watch-listen-cont download static">
+                                                        <a href="../../assets/docs/S24_SDS_Example.pdf" target="_blank"
+                                                            class="wle-btn">SDS Example</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row final hideThis text-center no-gutters">
+
+                            <div class="col-md-12">
+                                On the next screen, Susan will discuss PPE, that’s Personal Protective Equipment.
+
+                            </div>
+
+                        </div>
+
+                        <div class="cc-container" style="margin-top:3rem;">
+                            <p>A safety data sheet (or SDS) provides detailed information about a hazardous substance
+                                or dangerous good. It gives more information than you will find on a label.
+                                Manufacturers and suppliers of hazardous substances and dangerous goods are legally
+                                required to provide SDS's to your employer if requested.</p>
+
+                            <p>It is crucial that hazardous substances and dangerous goods in workplaces are used
+                                strictly according to the manufacturers or supplier's written instructions. Any risk
+                                controls specified by the SDS and the procedures developed by the workplace must also
+                                be carefully followed.</p>
+
+                        </div>
+                    </div>
+                </section>
+
+            </article>
+
+            <footer>
+                <div class="cover">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <nav id="footermenu"></nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </main>
+
+    <script type="text/javascript"></script>
+
+</body>
+
+</html>

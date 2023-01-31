@@ -1,0 +1,876 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RCP</title>
+
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/thismod.css">
+    <script src="../../script/lib/jquery.min.js"></script>
+    <script src="../../script/lib/bootstrap.js"></script>
+    <script src="../../script/lib/popper.min.js"></script>
+    <script src="../../script/lib/greensock/TweenMax.min.js"></script>
+    <script src="../../script/lib/scrollmagic/scrollmagic.min.js"></script>
+    <script src="../../script/lib/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+    <script src="../../script/lib/mediaelements/mediaelement.min.js"></script>
+    <script src="../../script/create.js"></script>
+    <script src="ani/deach_haz1.js"></script>
+    <script src="ani/deach_haz2.js"></script>
+    <script src="ani/deach_haz3.js"></script>
+    <script src="ani/deach_haz4.js"></script>
+    <script src="ani/deach_haz5.js"></script>
+    <script src="ani/deach_haz6.js"></script>
+    <script src="ani/deach_haz7.js"></script>
+    <script src="ani/deach_haz8.js"></script>
+
+    <script src="../../script/setupScreen.js"></script>
+    <script src="../../script/audiovideo.js"></script>
+    <script src="../../script/activities.js"></script>
+    <script src="../../script/script.js"></script>
+    <script type="module">
+        import jump from "../../script/lib/jump.js";
+            window.jump = jump
+        </script>
+
+    <script>
+        function setupPage() {
+
+            $('.slide').sliderThis({
+                nText: '',
+                bText: ''
+            }).first().addClass('slideIn')
+
+            $('#screen5').each(function (index, _screen) {
+
+                $('.wle-btn', _screen).on({
+                    click: function () {
+                        $(_screen).addClass('showCaro')
+                        swapAudio($('.slide', _screen).first().data('mp3'))
+                    }
+                })
+            })
+
+            //SETUP SCREEN  7
+            $("#s7_reveal").each(function (index, aAct) {
+
+
+
+                $(".question", aAct).each(function (index, aQuestion) {
+
+
+                    aQuestion.totalAns = $(".optbtn.cor", aQuestion).length;
+
+                    $('.retry', aAct).on({
+                        click: function () {
+
+                            $(".feedback", aAct).hide()
+                            $(".question", aAct).removeClass("showThis");
+                            $(".optbtn", aAct).removeClass('selected')
+                        }
+                    })
+
+                    //OPTION CLICKED
+                    $(".optbtn", aQuestion).click(function () {
+                        if (aQuestion.totalAns == 1) {
+                            $(".optbtn", aQuestion).removeClass("selected");
+                        }
+
+                        $(this).toggleClass("selected");
+
+                        if ($(".selected", aQuestion).length) {
+
+                            if ($(aQuestion).next().length) {
+                                $(aQuestion)
+                                    .next()
+                                    .addClass("showThis");
+                            } else {
+                                $(".feedback", aAct).hide()
+                                var isCorrect = checkCorrect($(".optbtn.selected", aAct), $(
+                                    ".optbtn.cor", aAct));
+
+                                if (isCorrect) {
+                                    $fb = $(".feedback.correct", aAct).show();
+                                    $(aAct).trigger('checkDone')
+                                } else {
+                                    $fb = $(".feedback.incorrect", aAct).show();
+                                }
+
+                                if ($fb.data("mp3")) {
+                                    swapAudio($fb.data("mp3"), $fb[0]);
+                                }
+
+                            }
+
+                        }
+                    });
+
+                });
+            });
+        }
+
+        function localAudioEnd() {
+            if (current_audBtn.id == 's7_fb1') {
+                $('.tracked', '#screen7').trigger('checkDone')
+            }
+        }
+
+        //SCREEN 5 SLIDER
+        function sliderNextClick(a) {
+            _parent = $(a).parent()
+            if (_parent.next()) {
+                swapAudio(_parent.next().data('mp3'))
+            }
+        }
+
+        function sliderBackClick(a) {
+            _parent = $(a).parent()
+            if (_parent.prev()) {
+                swapAudio(_parent.prev().data('mp3'))
+            }
+        }
+
+        function lastSection(a) {
+
+            $(a).closest('.tracked').trigger('checkDone')
+        }
+
+        function canvanInit() {
+
+            //Canvas 1
+            canvas1 = document.getElementById("can1");
+            exportRoot1 = new lib.deach_haz1();
+            stage1 = new createjs.Stage(canvas1);
+            stage1.addChild(exportRoot1);
+            stage1.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage1);
+
+            //CANVAS 2
+            canvas2 = document.getElementById("can2");
+            exportRoot2 = new lib.deach_haz2();
+            stage2 = new createjs.Stage(canvas2);
+            stage2.addChild(exportRoot2);
+            stage2.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage2);
+
+            //CANVAS 3
+            canvas3 = document.getElementById("can3");
+            exportRoot3 = new lib.deach_haz3();
+            stage3 = new createjs.Stage(canvas3);
+            stage3.addChild(exportRoot3);
+            stage3.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage3);
+
+            //CANVAS 4
+            canvas4 = document.getElementById("can4");
+            exportRoot4 = new lib.deach_haz4();
+            stage4 = new createjs.Stage(canvas4);
+            stage4.addChild(exportRoot4);
+            stage4.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage4);
+
+            //CANVAS 5
+            canvas5 = document.getElementById("can5");
+            exportRoot5 = new lib.deach_haz5();
+            stage5 = new createjs.Stage(canvas5);
+            stage5.addChild(exportRoot5);
+            stage5.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage5);
+
+            //CANVAS 6
+            canvas6 = document.getElementById("can6");
+            exportRoot6 = new lib.deach_haz6();
+            stage6 = new createjs.Stage(canvas6);
+            stage6.addChild(exportRoot6);
+            stage6.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage6);
+
+            //CANVAS 7
+            canvas7 = document.getElementById("can7");
+            exportRoot7 = new lib.deach_haz7();
+            stage7 = new createjs.Stage(canvas7);
+            stage7.addChild(exportRoot7);
+            stage7.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage7);
+
+            //CANVAS 8
+            canvas8 = document.getElementById("can8");
+            exportRoot8 = new lib.deach_haz8();
+            stage8 = new createjs.Stage(canvas8);
+            stage8.addChild(exportRoot8);
+            stage8.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage8);
+
+        }
+    </script>
+
+    <style type="text/css">
+        #screen1 {
+            background-image: url("../../assets/images/screenbg/t1s1_bg.jpg");
+        }
+
+        #screen5 {
+            background-image: url("../../assets/images/screenbg/t2s5_bg.jpg");
+        }
+
+        #screen6 {
+            background-image: url("../../assets/images/screenbg/t2s6_bg.jpg");
+        }
+
+        #screen7 .padtop {
+            background-image: url("../../assets/images/screenbg/t2s7_bg.png");
+
+        }
+
+        .can {
+            display: inline-block;
+            margin: auto 25%;
+            width: 50%;
+
+        }
+
+        #s7_reveal .round {
+            display: inline-flex;
+        }
+
+        .screen #sb_7-carousel {
+            height: 0;
+        }
+
+        .screen #sb_7-carousel .slide p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .screen.showCaro .single-panel .body {
+            display: none;
+        }
+
+        .screen.showCaro .single-panel .body .watch-listen-cont {
+            height: 0;
+            overflow: hidden;
+            -webkit-transition: 1s;
+            transition: 1s;
+        }
+
+        .screen.showCaro .single-panel .heading {
+            background-color: #eb185a;
+            color: #fff;
+        }
+
+        .screen.showCaro .single-panel #sb_7-carousel {
+            height: 350px;
+            -webkit-transition-delay: 1s;
+            transition-delay: 1s;
+            -webkit-transition: 1s;
+            transition: 1s;
+        }
+
+        .screen#screen7 .question {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 767.98px) {
+            .slide-carousel .slide {
+
+                width: calc(100% - 1rem);
+                padding: 0;
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+
+            }
+
+            .slide-carousel .slide .moArrows.nb {
+                right: -.5rem;
+
+            }
+
+            .slide-carousel .slide .moArrows.bb {
+                left: -.5rem;
+
+            }
+        }
+
+        @media (max-width: 768px) {
+            .screen.showCaro .single-panel #sb_7-carousel {
+                height: 380px;
+            }
+        }
+    </style>
+</head>
+
+<body onload="canvanInit()">
+
+    <div class="audio-container">
+        <audio id="custom-player" controls="controls" src="../../assets/audio/00_test.mp3" preload="none"></audio>
+    </div>
+
+    <main id="main">
+        <div id="page">
+            <header>
+                <div class="container fixed">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 cont-logo">
+                            <div class="logo"></div>
+
+                        </div>
+                        <div class="col-md-6 cont-title">
+
+                            <h3>
+                                <span class="var-course-title"></span>
+                            </h3>
+
+                        </div>
+                        <div class="col-md-3 cont-tools-parent">
+                            <div class="row no-gutters justify-content-end">
+                                <div class="col-sm-12 cont-tools">
+
+                                    <a href="javascript:void(0)" class="close-caption-btn"></a>
+                                    <a href="javascript:void(0)" class="help-btn"></a>
+                                    <a href="javascript:void(0)" class="exit-btn"></a>
+                                    <a class="hamburger hamburger--slider-r is-active">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <nav id="menu"></nav>
+
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <article>
+                <section id="screen1" class="screen style-header ignoreLock bg-h100">
+                    <div class="container">
+                        <div class="topic-label">Hazard</div>
+
+                        <div class="mobile-title">
+                            <h3 class="var-course-title"></h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen2" class="screen style-white ignoreLock" data-sbid="sb_4">
+                    <div class="container">
+                        <h2 class="screen-heading">Hazards in retail</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>So far, Susan has discussed more broadly Hazards and Risks in a retail setting,
+                                    Susan is now going to jump into each of these in more detail, starting with
+                                    <strong>Hazards</strong>.
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="video-responsive">
+
+                                    <div class="yt-video tracked" data-vid-w="720" data-vid-h="405"
+                                        data-vidid="module1_screen2_0"></div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="cc-container">
+                            <p>In the retail industry, possible hazards will depend on:</p>
+                            <ul>
+                                <li>The type of products that you sell</li>
+                                <li>The work that employees do</li>
+                                <li>The standard of buildings</li>
+                                <li>The types of fixtures and fittings</li>
+                                <li>The extent and quality of maintenance and other preventive programs that exist</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+                </section>
+
+                <section id="screen3" class="screen style-yellow" data-sbid="sb_5">
+                    <div class="container">
+                        <h2 class="screen-heading">Hazards in retail</h2>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p>It is the responsibility of the employer to advise employees and others who visit
+                                    the workplace, such as sales representatives or contractors, on how to deal with
+                                    these hazards. Such advice involves identifying the hazard and outlining action to
+                                    avoid it. This should be done simply and clearly.
+                                </p>
+                            </div>
+                            <div class="col-md-5">
+
+                                <!-- <a data-toggle="modal" data-target="#video2" class="info-graphic"></a>-->
+
+                                <div class="video-responsive">
+
+                                    <div class="yt-video tracked" data-vid-w="720" data-vid-h="405"
+                                        data-vidid="module1_screen2"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="style-note">
+
+                                    <p>
+                                        <strong>Note</strong>. Advice about hazards should be appropriate to the
+                                        potential level of risk, and relevant to who is likely to be exposed to it.
+                                        Some employers provide signage and advice in languages other than English as
+                                        necessary, though many warning signs convey the meaning required using
+                                        universally recognised images and symbols, such as a ‘slippery when wet’ sign
+                                        displayed when mopping floors.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="cc-container">
+                            <p>Advice can be provided via:</p>
+                            <ul>
+                                <li>Signs and posters</li>
+                                <li>Hazards registers</li>
+                                <li>Safety data sheets (SDS)</li>
+                                <li>Verbal advice and instructions</li>
+                                <li>Policies and procedures</li>
+                                <li>Information sheets</li>
+                                <li>Videos, YouTube clips, webinars</li>
+                                <li>Induction Training sessions</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+                </section>
+                <section id="screen4" class="screen style-orange activity" data-sbid="sb_6">
+
+                    <div class="container">
+                        <div class="question">
+                            <h2 class="screen-heading">Activity - Hazard identification
+                            </h2>
+                            <div class="row text-center">
+                                <p>A business generally relies on a number of methods and the contribution of all
+                                    personnel to identify hazards that might cause them or customers harm or injury.
+                                </p>
+
+                            </div>
+
+                            <div class="row bs-center">
+                                <div class="col-md-10 instruction text-center">
+                                    <p>Susan has the following methods that can identify Hazards in the workplace.
+                                        Which do you think are the correct ones?</p>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-md-6">
+                                    <div class="rcp-btn-lc optbtn cor">Workplace inspections</div>
+                                    <div class="rcp-btn-lc optbtn cor">WHS consultative mechanism recommendations
+                                    </div>
+                                    <div class="rcp-btn-lc optbtn cor">Sickness records</div>
+                                    <div class="rcp-btn-lc optbtn">Tax assessments</div>
+                                    <div class="rcp-btn-lc optbtn cor">Employees workers compensation claims</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="rcp-btn-lc optbtn cor">Register of Injuries</div>
+                                    <div class="rcp-btn-lc optbtn cor">Accident Investigations</div>
+                                    <div class="rcp-btn-lc optbtn cor">Communicating with employees</div>
+                                    <div class="rcp-btn-lc optbtn">Bank statements</div>
+                                    <div class="rcp-btn-lc optbtn">Building permits</div>
+                                </div>
+                                <div class="w-100">
+                                    <p>&nbsp;</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>
+                                        <a class="rcp-btn submit">SUBMIT</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="row bs-center">
+
+                                <div class="col-md-6">
+                                    <div class="feedback correct" data-mp3="s3-0-welldone"></div>
+                                    <div class="feedback incorrect" data-mp3="s3-0-notquite"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="row final  bs-center">
+                                <div class="col-md-10">
+                                    <div class="style-note">
+                                        Let’s now take a look at Reporting Hazards.
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="cc-container">
+                                <p>As a retail team leader, manager or business owner part of your role is
+                                    to identify hazards yourself and to encourage and support team members to do the
+                                    same.</p>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+                <section id="screen5" class="screen style-image" style="background-position:right" data-sbid="sb_7">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="single-panel">
+                                    <div>
+                                        <h2 class="heading">Reporting hazards</h2>
+                                    </div>
+                                    <div class="body">
+                                        <p>Always tell someone (your employer, your supervisor or your health and
+                                            safety representative) about hazards you can't fix yourself, particularly
+                                            if the hazard could cause serious risk to anyone, and tell someone if you
+                                            think a work practice could be dangerous.</p>
+
+                                        <div class="watch-listen-cont">
+                                            <a href="javascript:void(0)" class="wle-btn">Watch – Listen – Engage!</a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div id="sb_7-carousel" class="slide-carousel tracked">
+
+                                        <div class="carousel-body">
+
+                                            <div class="slide" data-mp3="s4-0-1-slip">
+                                                <canvas width="315" height="294" class="can" id="can1"></canvas>
+                                                <p>Slip, trip or fall hazards</p>
+                                            </div>
+                                            <div class="slide" data-mp3="s4-0-2-manualhandling">
+                                                <canvas width="315" height="294" class="can" id="can2"></canvas>
+                                                <p>Manual Handling hazards</p>
+                                            </div>
+                                            <div class="slide" data-mp3="s4-0-3-electrical">
+                                                <canvas width="315" height="294" class="can" id="can3"></canvas>
+                                                <p>Electrical hazards</p>
+                                            </div>
+                                            <div class="slide" data-mp3="s4-0-4-plant">
+                                                <canvas width="315" height="294" class="can" id="can4"></canvas>
+                                                <p>Plant and Equipment</p>
+                                            </div>
+                                            <div class="slide" data-mp3="s4-0-5-chemical">
+                                                <canvas width="315" height="294" class="can" id="can5"></canvas>
+                                                <p>Chemical
+                                                </p>
+                                            </div>
+                                            <div class="slide" data-mp3="s4-0-6-biological">
+                                                <canvas width="315" height="294" class="can" id="can6"></canvas>
+                                                <p>Biological and Radiation</p>
+                                            </div>
+                                            <div class="slide" data-mp3="s4-0-7-noise">
+                                                <canvas width="315" height="294" class="can" id="can7"></canvas>
+                                                <p>Noise and vibration</p>
+                                            </div>
+                                            <div class="slide" data-mp3="s4-0-8-psycho">
+                                                <canvas width="315" height="294" class="can" id="can8"></canvas>
+                                                <p>Psychosocial
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6"></div>
+
+                            </div>
+                            <div class="cc-container" style="margin-top:3rem">
+
+                                <p>1: Slip, trip or fall hazards</p>
+                                <p>Falling over items, on slippery floors or down stairs can cause injury, report
+                                    hazards that could cause slipping, tripping or falling</p>
+
+                                <p>2: Manual Handling hazards</p>
+                                <p>Lifting, pushing, pulling especially where they involve awkward or difficult to hold
+                                    items can be harmful if not done properly, report dangerous work practices</p>
+
+                                <p>3: Electrical hazards</p>
+                                <p>Direct or indirect contact with electrical current can cause burns, shock or death,
+                                    and arcing, explosion or fire; report electrical hazards</p>
+
+                                <p>4: Plant and Equipment</p>
+                                <p>Plant and Equipment can cause entanglement, crushing, stabbing, cutting and friction
+                                    from moving parts, as well as causing electrocution. &nbsp;Plant and equipment
+                                    hazards need to be reported.</p>
+
+                                <p>5: Chemical</p>
+                                <p>Hazardous substances are poisons, carcinogens, allergens or acids that can cause
+                                    harm with contact. These dangerous goods are flammable, explosive and corrosive so
+                                    could cause harm from their reactions to other items. Incorrect storage and use of
+                                    hazardous substances should be reported.</p>
+
+                                <p>6 Biological and Radiation</p>
+                                <p>Biological and radiation materials can cause disease, viral or bacterial illness,
+                                    and damage to your vital organs without instant symptoms. Biological and radiation
+                                    materials should be reported.</p>
+
+                                <p>7 Noise and vibration</p>
+                                <p>Loud and continuous noise in the workplace and constant or strong vibration can be
+                                    harmful and should be reported.</p>
+
+                                <p>8 Psychosocial</p>
+                                <p>Stress from strained relationships, workload and emotional pressures can be harmful
+                                    to teams and individuals and need to be reported.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen6" class="screen style-image" style="background-position:right" data-sbid="sb_8">
+                    <div class="container">
+
+                        <div class="row bs-center">
+                            <div class="col-lg-9">
+                                <div class="single-panel">
+
+                                    <h2 class="heading">Reporting hazards</h2>
+
+                                    <div class="body">
+                                        <p>
+                                            In addition to reporting hazards, it&rsquo;s important that retail
+                                            employees:</p>
+                                        <ul>
+                                            <li>Ask for instructions and training before using equipment
+
+                                            </li>
+                                            <li>Ask for help moving or lifting heavy objects</li>
+                                            <li>Follow all workplace health and safety policies and procedures
+
+                                            </li>
+                                            <li>Report anything that hasn&rsquo;t been listed here, that you believe to
+                                                be a hazard</li>
+                                        </ul>
+                                        <div class="watch-listen-cont ">
+                                            <a href="javascript:void(0)" class="wle-btn onclick" data-mp3="s4-1-p1-new"
+                                                rcp-show="#s6_reveal">Watch – Listen – Engage!</a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div id="s6_reveal" class="hideThis">
+                            <div class="row bs-center" style="margin-top:4rem">
+                                <div class="col-lg-10">
+                                    <div class="watch-listen-cont download static">
+                                        <a href="../../assets/docs/2.Reporting_Hazards_Policy_Sample_Mod01_SYB_RD.pdf"
+                                            target="_blank" class="wle-btn">Please familiarise yourself with the Floral
+                                            Connection Policy here.</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row bs-center" style="margin-top:2rem">
+                                <div class="col-lg-10">
+                                    <div class="watch-listen-cont download static">
+                                        <a href="../../assets/docs/1.Hazard_Report_Form_Sample_Mod01_SYB_RD.pdf"
+                                            target="_blank" class="wle-btn">Please familiarise yourself with the Floral
+                                            Connection
+                                            Report Form.</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cc-container">
+                            <p>The system for reporting any work hazards will vary in each business. Each workplace will
+                                have a process for reporting any accidents, usually outlined in the store&rsquo;s policy
+                                and procedure manual.</p>
+                            <p>It is essential that identified hazards, concerns or risks are made in writing. This way,
+                                if you have raised concern and no action is taken, you have proof that the business had
+                                knowledge of the relevant hazard.&nbsp;</p>
+                            <p>Once a hazard has been identified, a Hazard Report Form is to be completed in full.</p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section id="screen7" class="screen nopad" data-sbid="sb_9">
+                    <div class="container-large style-yellow padtop">
+                        <div class="container text-center">
+                            <h2 class="screen-heading">Activity - Hazard prevention</h2>
+                            <p>Susan will describe the following scenario to Tom, and then present Tom with a series of
+                                statements based on the scenario. Your job is to say whether each statement is true or
+                                false.</p>
+
+                            <div class="row bs-center">
+                                <div class="col-lg-10">
+                                    <div class="watch-listen-cont static">
+                                        <a href="javascript:void(0)" class="wle-btn onclick tracked"
+                                            data-mp3="s6-0-susan" rcp-show="#s7_reveal">Watch – Listen – Engage!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="container-large style-white padbot  ">
+                        <div id="s7_reveal" class="hideThis tracked">
+                            <div class="container ">
+                                <div class="row bs-center text-center">
+                                    <p>
+                                        <strong>Answer True or False to the following statements.</strong>
+                                    </p>
+                                </div>
+
+                                <div class="questions-container">
+                                    <div class="container question">
+                                        <div class="row bs-center">
+                                            <div class=" col-md-8 text-center">
+                                                <p>You must report the raised floorboard to ensure no one else trips
+                                                    and gets harmed.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bs-center">
+                                            <div class="col-sm-6 col-md-4  text-center">
+                                                <a class="rcp-btn round optbtn pink-btn cor">True</a>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4  text-center">
+                                                <a class="rcp-btn round optbtn pink-btn">False</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="container question hideThis">
+                                        <div class="row bs-center">
+                                            <div class=" col-md-8 text-center">
+                                                <p>Reporting the hazard should be your first priority</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bs-center">
+                                            <div class="col-sm-6 col-md-4  text-center">
+                                                <a class="rcp-btn round optbtn pink-btn">True</a>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4  text-center">
+                                                <a class="rcp-btn round optbtn pink-btn cor">False</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="container question hideThis">
+                                        <div class="row bs-center">
+                                            <div class=" col-md-8 text-center">
+                                                <p>Your shift is coming to an end, so it’s best to fill in a hazard
+                                                    report first thing on your next shift.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bs-center">
+                                            <div class="col-sm-6 col-md-4  text-center">
+                                                <a class="rcp-btn round optbtn pink-btn">True</a>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4  text-center">
+                                                <a class="rcp-btn round optbtn pink-btn cor">False</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row bs-center">
+                                    <div class="col-md-8">
+                                        <div class="feedback correct" id="s7_fb1" data-mp3="s6-0-fb1-new">
+                                            <p>Correct</p>
+                                            <p>Well done, you’ve ensured Susan gives the correct information, and you
+                                                have now completed all of the aspects of Hazards within this module,
+                                                it’s now time to discuss Risks.
+                                            </p>
+                                        </div>
+                                        <div class="feedback incorrect" id="s7_fb2" data-mp3="s6-0-incorrect">
+
+                                            <p>Incorrect</p>
+                                            <div class="row bs-center">
+                                                <a class="rcp-btn col-md-8 retry">Retry</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cc-container container">
+                            <p>Let’s say your shift is about to end and you are serving your last customer. You are
+                                tired as you have been on your feet for the majority of your shift. After quite some
+                                time, the customer has decided not to buy the items you’ve been presenting. Frustrated,
+                                you carry all of the unwanted stock away and you trip over a section of raised
+                                floorboard just in front of the sales counter. You drop all of the items, but luckily,
+                                you did not fall and were not harmed.
+                            </p>
+                            <p>We are all responsible for ensuring we work within a safe environment.</p>
+                            <p>Susan should not say this statement. You should take immediate action to make sure
+                                another person is not harmed by this hazard if safe to do so and if not safe to do so,
+                                report immediately and keep others away from the hazard.&nbsp;</p>
+                            <p>The key to hazard prevention is early intervention.</p>
+                        </div>
+                    </div>
+
+                </section>
+
+            </article>
+
+            <footer>
+                <div class="cover">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <nav id="footermenu"></nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+</body>
+
+</html>

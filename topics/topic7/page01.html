@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/thismod.css">
+
+    <script src="../../script/lib/jquery.min.js"></script>
+
+    <script src="../../script/lib/bootstrap.js"></script>
+    <script src="../../script/lib/popper.min.js"></script>
+    <script src="../../script/lib/greensock/TweenMax.min.js"></script>
+    <script src="../../script/lib/scrollmagic/scrollmagic.min.js"></script>
+    <script src="../../script/lib/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+    <script src="../../script/lib/mediaelements/mediaelement.min.js"></script>
+    <script src="../../script/setupScreen.js"></script>
+    <script src="../../script/audiovideo.js"></script>
+    <script src="../../script/activities.js"></script>
+    <script src="../../script/script.js"></script>
+    <script type="module">
+        import jump from "../../script/lib/jump.js";
+            window.jump = jump
+        </script>
+    <script>
+        function setupPage() {}
+    </script>
+
+    <style type="text/css">
+        #screen1 {
+            background-image: url("../../assets/images/screenbg/t1s1_bg.jpg");
+        }
+
+        #screen2 {
+            background-image: url("../../assets/images/screenbg/t8s2_bg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        #screen3 {
+            background-image: url("../../assets/images/screenbg/t8s3_bg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        @media (max-width: 767.98px) {
+            #screen2 {
+                background-image: url("../../assets/images/screenbg/t8s2_bg.png");
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                background-position: bottom center;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="audio-container">
+        <audio id="custom-player" controls="controls" src="../../assets/audio/00_test.mp3" preload="none"></audio>
+    </div>
+    <main id="main">
+        <div id="page">
+            <header>
+                <div class="container fixed">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 cont-logo">
+                            <div class="logo"></div>
+
+                        </div>
+                        <div class="col-md-6 cont-title">
+
+                            <h3>
+                                <span class="var-course-title"></h3>
+
+                        </div>
+                        <div class="col-md-3 cont-tools-parent">
+                            <div class="row no-gutters justify-content-end">
+                                <div class="col-sm-12 cont-tools">
+                                    <a href="javascript:void(0)" class="close-caption-btn"></a>
+                                    <a href="javascript:void(0)" class="help-btn"></a>
+                                    <a href="javascript:void(0)" class="exit-btn"></a>
+                                    <a class="hamburger hamburger--slider-r is-active" type="">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <nav id="menu"></nav>
+
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <article>
+                <section id="screen1" class="screen style-header ignoreLock" data-sbid="">
+                    <div class="container">
+                        <div class="topic-label">Emergency Policies and Procedures</div>
+
+                        <div class="mobile-title">
+                            <h3 class="var-course-title"></h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen2" class="screen ignoreLock bg-h100" data-sbid="sb_28">
+
+                    <div class="container">
+                        <div class="row bs-center">
+                            <div class="col-md-10 text-center">
+                                <h2 class="screen-heading">Implement store emergency policy and procedures</h2>
+                                <p>
+                                    <strong>Listen to Susan explain emergency procedures.</strong>
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="row bs-center">
+                            <div class="col-md-10">
+                                <div class="video-responsive">
+
+                                    <div class="yt-video tracked" data-vid-w="720" data-vid-h="405"
+                                        data-vidid="module1_screen23" data-reveal="#s2_reveal"></div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="s2_reveal" class="row final bs-center">
+                            <div class="col-md-10">
+                                <div class="style-note text-center">
+                                    <p>All staff should have access to all policies and procedures and understand what
+                                        is required in the event of an emergency. All staff should be able to respond
+                                        safely to any emergency.</p>
+
+                                    <p>Download and read the PDF attached here to learn more about emergency policies
+                                        and procedures.</p>
+                                    <div class="watch-listen-cont static download">
+                                        <a href="../../assets/docs/S28_Implement_store_emergency policy_and_procedures.pdf"
+                                            class="wle-btn" target="_blank">Download Emergency Policies and
+                                            Procedures</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="cc-container">
+                            <p>We hope that an emergency won&rsquo;t ever occur, however if one did, we would need to
+                                prepared.</p>
+                            <p>Emergencies can be fire, robbery, and bomb threat.</p>
+                            <p>Emergency procedures should be practised in the event of a real incident occurring. All
+                                staff should know what their responsibility is and how to keep themselves and customers
+                                safe in the event of an emergency.</p>
+                            <p>To protect the health, safety and wellbeing of employees, retail business owners and
+                                store managers should prepare emergency plans and evacuation procedures, and regularly
+                                review and revise their emergency plans and evacuation procedures.</p>
+                            <p>Policies and procedures will vary from store to store though there will be information
+                                about:</p>
+                            <ul>
+                                <li>Activate and respond to alarms,</li>
+                                <li>Response to the event of a fire,</li>
+                                <li>Action to be taken in the event of an armed robbery,</li>
+                                <li>Bomb threat procedures,</li>
+                                <li>Store evacuation,</li>
+                                <li>Dealing with accidents and injuries.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="screen3" class="screen last" data-sbid="sb_29">
+
+                    <div class="container">
+                        <h2 class="screen-heading">Conclusion</h2>
+                        <div class="row bs-center">
+                            <div class="col-md-12 text-center">
+                                <p>
+                                    <strong>Congratulations! You have completed the module, Secure Your
+                                        Business.</strong>
+                                </p>
+                                <p>
+                                    <strong>You should now have a better understanding of securing your business
+                                        because you know about:</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row bs-center">
+                            <div class="col-md-5">
+                                <ul>
+                                    <li>Hazard Identification, Reporting and Prevention</li>
+                                    <li>Risk Management and Assessment</li>
+                                    <li>Four steps of an Effective Risk Management Plan</li>
+                                    <li>Hazard and Risk Control and Review</li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-5">
+                                <ul>
+
+                                    <li>Dangerous Goods</li>
+                                    <li>The importance of PPE</li>
+                                    <li>Manual Handling</li>
+                                    <li>Emergency Policies and procedures</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row bs-center">
+                            <div class="col-md-12 text-center">
+                                <p>Remember, this module is one part of your broader learning in matters pertaining to
+                                    Securing Your Business! Be sure to participate in the Retail Connection workshops,
+                                    webinars, podcasts and myriad other activities that will expand on this topic,
+                                    along with others.
+                                </p>
+                                <p><strong>Click the X to save your completion and exit the course.</strong></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </article>
+
+            <footer>
+                <div class="cover">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <nav id="footermenu"></nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </main>
+
+    <script type="text/javascript"></script>
+
+</body>
+
+</html>

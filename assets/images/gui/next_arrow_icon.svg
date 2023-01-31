@@ -1,0 +1,19 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="79.33" height="79.33" viewBox="0 0 79.33 79.33">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #b2b2b2;
+      }
+    </style>
+  </defs>
+  <title>next_arrow_icon</title>
+  <g>
+    <path class="cls-1" d="M460.2,298.16a39.67,39.67,0,1,0-39.66,39.66A39.68,39.68,0,0,0,460.2,298.16Z" transform="translate(-380.87 -258.49)"/>
+    <path class="cls-2" d="M460.2,298a39.67,39.67,0,1,0-39.56,39.77A39.68,39.68,0,0,0,460.2,298Zm-70.73.19a31,31,0,1,1,31.16,31A31,31,0,0,1,389.47,298.24Z" transform="translate(-380.87 -258.49)"/>
+    <polygon class="cls-2" points="47.42 40.71 47.42 23.07 31.9 23.07 31.9 40.71 22.19 40.71 39.67 57.13 57.11 40.71 47.42 40.71"/>
+  </g>
+</svg>

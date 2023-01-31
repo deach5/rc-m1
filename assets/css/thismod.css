@@ -1,0 +1,203 @@
+header .cont-title,
+header .cont-tools,
+header .hamburger.is-active {
+    background-color: #E37250;
+
+}
+
+/*
+#F2B042 - Dip
+#A62537 - cert 2
+#DB355B - cert 3
+#E37250 - cert 4
+*/
+.style-header .topic-label {
+    font-weight: bold;
+    background-color: #E37250;
+
+}
+
+
+.modal .close {
+    background-color: #b11f36;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+    text-shadow: none;
+    opacity: 1;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 2rem;
+    text-align: center;
+    z-index: 99;
+}
+
+.modal-content {
+    border: 0;
+    border-radius: 0;
+
+}
+
+.style-note p:last-of-type {
+    margin-bottom: 0rem;
+}
+
+.pad1 {
+    padding: 1rem;
+}
+
+.pad2 {
+    padding: 2rem;
+}
+
+.no-shadow {
+    box-shadow: none !important;
+}
+
+.nopadmar {
+    margin: 0;
+    padding: 0;
+}
+
+
+.rcp-cont,
+.rcp-cont-back {
+    color: #eb185a;
+    cursor: pointer;
+
+}
+
+.rcp-cont-back::before,
+.rcp-cont::after {
+    content: '';
+    background-image: url("../../assets/images/shared/continue-arrow.png");
+    display: inline-block;
+    height: 20px;
+    width: 45px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.rcp-cont-back::before {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+
+/*
+.moArrows {
+    display: block;
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    background-image: url(../../assets/images/shared/slide-arrow-right.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: 1;
+
+
+}
+
+.moArrows.bb {
+    left: -1rem;
+    top: calc(50% - 1rem);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.moArrows.nb {
+    right: -1rem;
+    top: calc(50% - 1rem);
+}
+*/
+
+.screen.style-maroon {
+    background-color: #b31f36;
+    color: #fff;
+}
+
+.rcp-btn.white-pink {
+    border-color: #eb185a;
+    text-transform: none;
+    margin: 0;
+
+}
+
+.rcp-btn.white-pink.clicked {
+    border-color: #fff;
+    color: #fff;
+    background-color: #eb185a;
+}
+
+.rcp-btn.white-pink.clicked.cor {
+    background-image: url("../../assets/images/t4/screen4_tick.png");
+    background-repeat: no-repeat;
+    background-position: 99% center;
+}
+
+.rcp-btn.white-pink.disabled {
+    pointer-events: none;
+}
+
+.rcp-btn.white-pink span {
+    display: none;
+}
+
+
+
+.video-responsive {
+    background-color: transparent;
+    background-image: none;
+}
+
+
+@media (max-width: 1600px) {
+    .bg-bottom {
+        background-position: center bottom;
+    }
+
+    .bg-h100 {
+        background-size: auto 100%;
+
+    }
+
+    .bg-w100 {
+        background-size: 100% auto;
+
+    }
+}
+
+@media (max-width: 768px) {
+
+    header .cont-title h3,
+    header .cont-tools h3 {
+        margin: 0px;
+        padding: 1rem;
+        padding-top: 1.5rem;
+    }
+
+    .watch-listen-cont .wle-btn {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        font-size: .8rem;
+    }
+
+}
+
+@media (min-width: 576px) and (max-width: 767.99px) {
+    header .container.fixed {
+        width: 100% !important;
+    }
+
+    header {
+        padding-top: 0 !important;
+    }
+}

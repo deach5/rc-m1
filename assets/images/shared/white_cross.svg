@@ -1,0 +1,18 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="40.97" height="40.97" viewBox="0 0 40.97 40.97">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #eb1d24;
+      }
+    </style>
+  </defs>
+  <title>white_cross</title>
+  <g>
+    <circle class="cls-1" cx="20.49" cy="20.49" r="20.49"/>
+    <polygon class="cls-2" points="31.5 28.39 23.58 20.48 31.5 12.58 28.39 9.47 20.49 17.39 12.58 9.47 9.49 12.58 17.39 20.48 9.47 28.39 12.58 31.5 20.49 23.58 28.41 31.49 31.5 28.39"/>
+  </g>
+</svg>

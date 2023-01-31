@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/thismod.css">
+
+    <script src="../../script/lib/jquery.min.js"></script>
+
+    <script src="../../script/lib/bootstrap.js"></script>
+    <script src="../../script/lib/popper.min.js"></script>
+    <script src="../../script/lib/greensock/TweenMax.min.js"></script>
+    <script src="../../script/lib/scrollmagic/scrollmagic.min.js"></script>
+    <script src="../../script/lib/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+    <script src="../../script/lib/mediaelements/mediaelement.min.js"></script>
+    <script src="../../script/setupScreen.js"></script>
+    <script src="../../script/audiovideo.js"></script>
+    <script src="../../script/activities.js"></script>
+    <script src="../../script/script.js"></script>
+    <script type="module">
+        import jump from "../../script/lib/jump.js";
+            window.jump = jump
+        </script>
+    <script>
+        function setupPage() {
+            $('#screen3 .flip-btn').on({
+                click: function () {
+                    $('.text', this).animate({
+                        opacity: 1
+                    });
+                    $(this).trigger('checkDone')
+
+                }
+            })
+        }
+    </script>
+
+    <style type="text/css">
+        #screen1 {
+            background-image: url("../../assets/images/screenbg/t1s1_bg.jpg");
+        }
+
+        #screen2 .padbot {
+            min-height: 20rem;
+            background-image: url("../../assets/images/screenbg/t6s2_bg.jpg");
+        }
+
+        #screen2 .padtop {
+            min-height: 16rem;
+
+        }
+
+        .flip-btn {
+            position: relative;
+            display: block;
+            height: 300px;
+            color: #fff;
+            margin-bottom: 1rem;
+            overflow: hidden;
+
+        }
+
+        .flip-btn .text {
+            display: block;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            background-color: #fff;
+            color: #000;
+            padding: 1rem;
+            line-height: 1rem;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+
+        }
+
+        #s2_reveal {
+            margin-top: 2rem;
+        }
+
+        .flip-btn img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .flip-btn:hover img {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 767.98px) {}
+    </style>
+</head>
+
+<body>
+    <div class="audio-container">
+        <audio id="custom-player" controls="controls" src="../../assets/audio/00_test.mp3" preload="none"></audio>
+    </div>
+    <main id="main">
+        <div id="page">
+            <header>
+                <div class="container fixed">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 cont-logo">
+                            <div class="logo"></div>
+
+                        </div>
+                        <div class="col-md-6 cont-title">
+
+                            <h3>
+                                <span class="var-course-title"></h3>
+
+                        </div>
+                        <div class="col-md-3 cont-tools-parent">
+                            <div class="row no-gutters justify-content-end">
+                                <div class="col-sm-12 cont-tools">
+                                    <a href="javascript:void(0)" class="close-caption-btn"></a>
+                                    <a href="javascript:void(0)" class="help-btn"></a>
+                                    <a href="javascript:void(0)" class="exit-btn"></a>
+                                    <a class="hamburger hamburger--slider-r is-active" type="">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <nav id="menu"></nav>
+
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <article>
+                <section id="screen1" class="screen style-header ignoreLock bg-h100" data-sbid="">
+                    <div class="container">
+                        <div class="topic-label">Personal Protective Equipment</div>
+
+                        <div class="mobile-title">
+                            <h3 class="var-course-title"></h3>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="screen2" class="screen ignoreLock nopad" data-sbid="sb_25">
+
+                    <div class="container-large style-white padtop">
+                        <div class="container">
+                            <div class="row bs-center">
+                                <div class="col-md-10 text-center">
+                                    <h2 class="screen-heading">Types of PPE</h2>
+                                    <p>Listen to what Susan has to say on PPE.</p>
+                                    <div class="watch-listen-cont static">
+                                        <a href="#" class="wle-btn tracked" rcp-show="#s2_reveal"
+                                            data-mp3="s20-p1-new">Watch
+                                            – Listen – Engage!</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row bs-center hideThis" id="s2_reveal">
+                                <div class="col-md-12">
+                                    <p>PPE can include:</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Overalls and protective aprons</li>
+                                        <li>Protective headgear - safety helmets, wide-brimmed hats to protect against
+                                            the sun</li>
+                                        <li>Safety boots or shoes</li>
+
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Safety glasses or goggles</li>
+                                        <li>Gloves</li>
+                                        <li>Respirators and masks</li>
+                                        <li>Earmuffs and earpieces</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-large style-white padbot">
+                        <div class="container"></div>
+                        <div class="cc-container">
+                            <p>It is essential that if you are exposed to chemicals or hazardous substances at your
+                                workplace, you are trained and aware of any Personal Protective Equipment (PPE) that
+                                you need, to ensure your safety when handling dangerous goods.</p>
+                            <p>For example, wearing gloves and overalls so that your skin doesn&rsquo;t contact the
+                                goods. Your employee has a legal obligation to provide protective equipment or clothing
+                                and to maintain it in good order as part of the risk control process.</p>
+                            <p>PPE can include:</p>
+                            <ul>
+                                <li>Overalls and protective aprons</li>
+                                <li>Protective headgear - safety helmets, wide-brimmed hats to protect against the sun
+                                </li>
+                                <li>Safety boots or shoes</li>
+                                <li>Safety glasses or goggles</li>
+                                <li>Gloves</li>
+                                <li>Respirators and masks</li>
+                                <li>Earmuffs and earpieces</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </section>
+                <section id="screen3" class="screen style-yellow " data-sbid="sb_25">
+
+                    <div class="container text-center">
+                        <h2 class="screen-heading">Employees, employers and PPE</h2>
+                        <div class="row bs-center">
+                            <div class="col-md-8">
+                                <p>Click each image below to learn more about Employees, Employers and PPE.</p>
+                            </div>
+                        </div>
+                        <div class="flip-container">
+                            <div class="row bs-center">
+                                <div class="col-md-4">
+                                    <a id="s5_flip1" href="#" class="flip-btn tracked">
+
+                                        <span class="text">
+                                            <h3>Employees and PPE</h3>
+                                            Employees must use PPE and clothing provided by the employer. They should
+                                            know why and how to use it before they start any nominated job.
+                                        </span>
+                                        <img src="../../assets//images/t6/t6s3_btn1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a id="s5_flip2" href="#" class="flip-btn tracked">
+
+                                        <span class="text">
+                                            <h3>Employer choosing PPE</h3>
+                                            Employers should make sure that the PPE they purchase for their employees
+                                            comply with the relevant Australian Standard.
+                                        </span>
+                                        <img src="../../assets//images/t6/t6s3_btn2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a id="s5_flip3" href="#" class="flip-btn tracked">
+
+                                        <span class="text">
+                                            <h3>Employer storing PPE</h3>
+                                            Employers must make sure that PPE is stored in a clean and fully
+                                            operational condition, that it can be easily found when needed and that it
+                                            is safe from interference and damage.
+                                        </span>
+                                        <img src="../../assets//images/t6/t6s3_btn3.jpg" alt="">
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row final bs-center">
+                            <div class="col-md-10">
+                                <div class="style-note">
+                                    <p>
+                                        <strong>Note</strong>. PPE should be inspected regularly and before use to make
+                                        sure it is in good working order. Damaged or defective PPE must be reported at
+                                        once. It must be tagged (to prevent its use) until it has been repaired, thrown
+                                        away or replaced.</p>
+                                    <p>Now that you know more about PPE, please continue to Manual Handling.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </article>
+
+            <footer>
+                <div class="cover">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <nav id="footermenu"></nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </main>
+
+    <script type="text/javascript"></script>
+
+</body>
+
+</html>
